@@ -1,33 +1,33 @@
 m_ProjectFiles:
   m_ManifestFileStatus:
-    m_FilePath: C:/dev/Games/SantasSafewordUnity/Packages/manifest.json
+    m_FilePath: D:/Dev/SantaKlaus/Packages/manifest.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638947817865243493
-    m_Hash: 3670475300
+      ticks: 638949160421667470
+    m_Hash: 954525387
   m_LockFileStatus:
-    m_FilePath: C:/dev/Games/SantasSafewordUnity/Packages/packages-lock.json
+    m_FilePath: D:/Dev/SantaKlaus/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638947817865471077
-    m_Hash: 182034193
+      ticks: 638949164480391850
+    m_Hash: 1198989538
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
   m_LocalFileStatus: []
-m_ProjectPath: C:/dev/Games/SantasSafewordUnity/Packages
-m_EditorVersion: 6000.2.5f1 (43d04cd1df69)
+m_ProjectPath: D:/Dev/SantaKlaus/Packages
+m_EditorVersion: 6000.1.15f1 (faa32412f6c9)
 m_ResolvedPackages:
 - packageId: com.unity.collab-proxy@2.9.3
   testable: 0
   isDirectDependency: 1
   version: 2.9.3
   source: 1
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.collab-proxy@ab839cc7d2ad
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.collab-proxy@ab839cc7d2ad
   assetPath: Packages/com.unity.collab-proxy
   name: com.unity.collab-proxy
   displayName: Unity Version Control
@@ -126,8 +126,11 @@ m_ResolvedPackages:
     - 2.9.2
     - 2.9.3
     compatible:
+    - 2.8.2
+    - 2.9.1
+    - 2.9.2
     - 2.9.3
-    recommended: 2.9.3
+    recommended: 2.8.2
     deprecated: []
   dependencies: []
   resolvedDependencies: []
@@ -155,9 +158,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 1
@@ -171,12 +171,11 @@ m_ResolvedPackages:
     revision: d05e170be4282c71223767f286e93871356512a1
     path: 
   unityLifecycle:
-    version: 2.9.3
+    version: 2.8.2
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -190,20 +189,14 @@ m_ResolvedPackages:
   fingerprint: ab839cc7d2adf143e5378baf46edc31cbc5d84f7
   editorCompatibility:
     compatibilityLevel: 0
-    minimumPackageVersion: 2.9.3
+    minimumPackageVersion: 2.8.2
     minimumUnityVersion: 2021.3.0f1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.feature.development@1.0.2
   testable: 0
   isDirectDependency: 1
   version: 1.0.2
   source: 2
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.feature.development@767aadbc6eb7
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.feature.development@767aadbc6eb7
   assetPath: Packages/com.unity.feature.development
   name: com.unity.feature.development
   displayName: Engineering
@@ -268,9 +261,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -289,7 +279,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -303,18 +292,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.2
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.inputsystem@1.14.2
   testable: 0
   isDirectDependency: 1
   version: 1.14.2
   source: 1
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.inputsystem@be6c4fd0abf5
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.inputsystem@be6c4fd0abf5
   assetPath: Packages/com.unity.inputsystem
   name: com.unity.inputsystem
   displayName: Input System
@@ -387,6 +370,8 @@ m_ResolvedPackages:
     - 1.14.1
     - 1.14.2
     compatible:
+    - 1.14.0
+    - 1.14.1
     - 1.14.2
     recommended: 1.14.2
     deprecated: []
@@ -403,8 +388,6 @@ m_ResolvedPackages:
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
   - name: com.unity.modules.hierarchycore
-    version: 1.0.0
-  - name: com.unity.modules.physics
     version: 1.0.0
   keywords:
   - input
@@ -423,9 +406,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 1
@@ -439,12 +419,11 @@ m_ResolvedPackages:
     revision: 027f642a18cfac51abd465bf1e4b777316db0696
     path: 
   unityLifecycle:
-    version: 1.14.2
+    version: 1.14.0
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -459,20 +438,14 @@ m_ResolvedPackages:
   fingerprint: be6c4fd0abf5b9b45f956b97294032a67f3c2f4d
   editorCompatibility:
     compatibilityLevel: 0
-    minimumPackageVersion: 1.14.2
+    minimumPackageVersion: 1.14.0
     minimumUnityVersion: 2021.3.0a1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.multiplayer.center@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546
   assetPath: Packages/com.unity.multiplayer.center
   name: com.unity.multiplayer.center
   displayName: Multiplayer Center
@@ -488,6 +461,12 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
+    - 0.2.1
+    - 0.3.0
+    - 0.4.0
+    - 1.0.0-pre.1
+    - 1.0.0-pre.2
+    - 1.0.0-pre.3
     - 1.0.0
     compatible:
     - 1.0.0
@@ -507,8 +486,6 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.hierarchycore
     version: 1.0.0
-  - name: com.unity.modules.physics
-    version: 1.0.0
   keywords:
   - Multiplayer
   - Netcode
@@ -522,9 +499,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -543,7 +517,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -557,18 +530,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 6000.0.0a1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.postprocessing@3.5.1
   testable: 0
   isDirectDependency: 1
   version: 3.5.1
   source: 1
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.postprocessing@4a41da475b74
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.postprocessing@4a41da475b74
   assetPath: Packages/com.unity.postprocessing
   name: com.unity.postprocessing
   displayName: Post Processing
@@ -644,9 +611,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 1
@@ -665,7 +629,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -682,18 +645,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 3.5.0
     minimumUnityVersion: 2019.4.19f1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.timeline@1.8.9
   testable: 0
   isDirectDependency: 1
   version: 1.8.9
   source: 1
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.timeline@6b9e48457ddb
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.timeline@6b9e48457ddb
   assetPath: Packages/com.unity.timeline
   name: com.unity.timeline
   displayName: Timeline
@@ -798,6 +755,8 @@ m_ResolvedPackages:
     - 1.8.8
     - 1.8.9
     compatible:
+    - 1.8.7
+    - 1.8.8
     - 1.8.9
     recommended: 1.8.9
     deprecated: []
@@ -833,9 +792,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 1
@@ -849,12 +805,11 @@ m_ResolvedPackages:
     revision: 5d309c1b02350ecb7093a4001d66afb1a238fc50
     path: 
   unityLifecycle:
-    version: 1.8.9
+    version: 1.8.7
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -878,20 +833,14 @@ m_ResolvedPackages:
   fingerprint: 6b9e48457ddb4f64813d77fd77efc79a8f3102ae
   editorCompatibility:
     compatibilityLevel: 0
-    minimumPackageVersion: 1.8.9
+    minimumPackageVersion: 1.8.7
     minimumUnityVersion: 2021.3.0a1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.ugui@2.0.0
   testable: 0
   isDirectDependency: 1
   version: 2.0.0
   source: 2
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.ugui@38c58105e446
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.ugui@1a71b488df3e
   assetPath: Packages/com.unity.ugui
   name: com.unity.ugui
   displayName: Unity UI
@@ -909,10 +858,19 @@ m_ResolvedPackages:
   versions:
     all:
     - 2.0.0
+    - 3.0.0-exp.1
+    - 3.0.0-exp.3
+    - 3.0.0-exp.4
     compatible:
     - 2.0.0
+    - 3.0.0-exp.1
+    - 3.0.0-exp.3
+    - 3.0.0-exp.4
     recommended: 2.0.0
-    deprecated: []
+    deprecated:
+    - 3.0.0-exp.1
+    - 3.0.0-exp.3
+    - 3.0.0-exp.4
   dependencies:
   - name: com.unity.modules.ui
     version: 1.0.0
@@ -941,9 +899,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -962,7 +917,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -971,23 +925,17 @@ m_ResolvedPackages:
   upmReserved: 
   assetStore:
     productId: 
-  fingerprint: 38c58105e446af1c55b1d9d1e5bf970ff7d271c8
+  fingerprint: 1a71b488df3ebf0445532ad09fea67fd1a895ab4
   editorCompatibility:
     compatibilityLevel: 0
     minimumPackageVersion: 2.0.0
     minimumUnityVersion: 2019.2.0a1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.visualscripting@1.9.7
   testable: 0
   isDirectDependency: 1
   version: 1.9.7
   source: 1
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.visualscripting@6279e2b7c485
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.visualscripting@6279e2b7c485
   assetPath: Packages/com.unity.visualscripting
   name: com.unity.visualscripting
   displayName: Visual Scripting
@@ -1066,12 +1014,9 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638835226812630000
   documentationUrl: 
@@ -1087,7 +1032,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -1109,18 +1053,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.9.7
     minimumUnityVersion: 2021.3.0a1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.accessibility@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.accessibility
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.accessibility
   assetPath: Packages/com.unity.modules.accessibility
   name: com.unity.modules.accessibility
   displayName: Accessibility
@@ -1151,9 +1089,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -1172,7 +1107,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -1186,18 +1120,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.ai@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ai
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ai
   assetPath: Packages/com.unity.modules.ai
   name: com.unity.modules.ai
   displayName: AI
@@ -1228,9 +1156,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -1249,7 +1174,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -1263,18 +1187,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.androidjni@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.androidjni
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.androidjni
   assetPath: Packages/com.unity.modules.androidjni
   name: com.unity.modules.androidjni
   displayName: Android JNI
@@ -1304,9 +1222,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -1325,7 +1240,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -1339,18 +1253,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.animation@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.animation
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.animation
   assetPath: Packages/com.unity.modules.animation
   name: com.unity.modules.animation
   displayName: Animation
@@ -1381,9 +1289,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -1402,7 +1307,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -1416,18 +1320,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.assetbundle@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.assetbundle
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.assetbundle
   assetPath: Packages/com.unity.modules.assetbundle
   name: com.unity.modules.assetbundle
   displayName: Asset Bundle
@@ -1458,9 +1356,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -1479,7 +1374,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -1493,18 +1387,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.audio@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.audio
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.audio
   assetPath: Packages/com.unity.modules.audio
   name: com.unity.modules.audio
   displayName: Audio
@@ -1535,9 +1423,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -1556,7 +1441,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -1570,18 +1454,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.cloth@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.cloth
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.cloth
   assetPath: Packages/com.unity.modules.cloth
   name: com.unity.modules.cloth
   displayName: Cloth
@@ -1616,9 +1494,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -1637,7 +1512,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -1651,18 +1525,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.director@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.director
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.director
   assetPath: Packages/com.unity.modules.director
   name: com.unity.modules.director
   displayName: Director
@@ -1701,9 +1569,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -1722,7 +1587,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -1736,18 +1600,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.imageconversion@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imageconversion
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imageconversion
   assetPath: Packages/com.unity.modules.imageconversion
   name: com.unity.modules.imageconversion
   displayName: Image Conversion
@@ -1778,9 +1636,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -1799,7 +1654,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -1813,18 +1667,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.imgui@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imgui
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imgui
   assetPath: Packages/com.unity.modules.imgui
   name: com.unity.modules.imgui
   displayName: IMGUI
@@ -1855,9 +1703,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -1876,7 +1721,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -1890,18 +1734,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.jsonserialize@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.jsonserialize
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.jsonserialize
   assetPath: Packages/com.unity.modules.jsonserialize
   name: com.unity.modules.jsonserialize
   displayName: JSONSerialize
@@ -1932,9 +1770,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -1953,7 +1788,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -1967,18 +1801,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.particlesystem@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.particlesystem
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.particlesystem
   assetPath: Packages/com.unity.modules.particlesystem
   name: com.unity.modules.particlesystem
   displayName: Particle System
@@ -2009,9 +1837,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -2030,7 +1855,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -2044,18 +1868,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.physics@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics
   assetPath: Packages/com.unity.modules.physics
   name: com.unity.modules.physics
   displayName: Physics
@@ -2086,9 +1904,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -2107,7 +1922,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -2121,18 +1935,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.physics2d@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics2d
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics2d
   assetPath: Packages/com.unity.modules.physics2d
   name: com.unity.modules.physics2d
   displayName: Physics 2D
@@ -2163,9 +1971,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -2184,7 +1989,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -2198,18 +2002,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.screencapture@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.screencapture
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.screencapture
   assetPath: Packages/com.unity.modules.screencapture
   name: com.unity.modules.screencapture
   displayName: Screen Capture
@@ -2244,9 +2042,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -2265,7 +2060,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -2279,18 +2073,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.terrain@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrain
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrain
   assetPath: Packages/com.unity.modules.terrain
   name: com.unity.modules.terrain
   displayName: Terrain
@@ -2321,9 +2109,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -2342,7 +2127,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -2356,18 +2140,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.terrainphysics@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrainphysics
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrainphysics
   assetPath: Packages/com.unity.modules.terrainphysics
   name: com.unity.modules.terrainphysics
   displayName: Terrain Physics
@@ -2406,9 +2184,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -2427,7 +2202,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -2441,18 +2215,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.tilemap@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.tilemap
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.tilemap
   assetPath: Packages/com.unity.modules.tilemap
   name: com.unity.modules.tilemap
   displayName: Tilemap
@@ -2486,9 +2254,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -2507,7 +2272,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -2521,18 +2285,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.ui@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ui
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ui
   assetPath: Packages/com.unity.modules.ui
   name: com.unity.modules.ui
   displayName: UI
@@ -2563,9 +2321,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -2584,7 +2339,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -2598,18 +2352,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.uielements@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.uielements
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.uielements
   assetPath: Packages/com.unity.modules.uielements
   name: com.unity.modules.uielements
   displayName: UIElements
@@ -2638,8 +2386,6 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.hierarchycore
     version: 1.0.0
-  - name: com.unity.modules.physics
-    version: 1.0.0
   resolvedDependencies:
   - name: com.unity.modules.ui
     version: 1.0.0
@@ -2648,8 +2394,6 @@ m_ResolvedPackages:
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
   - name: com.unity.modules.hierarchycore
-    version: 1.0.0
-  - name: com.unity.modules.physics
     version: 1.0.0
   keywords: []
   registry:
@@ -2660,9 +2404,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -2681,7 +2422,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -2695,18 +2435,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.umbra@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.umbra
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.umbra
   assetPath: Packages/com.unity.modules.umbra
   name: com.unity.modules.umbra
   displayName: Umbra
@@ -2737,9 +2471,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -2758,7 +2489,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -2772,18 +2502,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.unityanalytics@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unityanalytics
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unityanalytics
   assetPath: Packages/com.unity.modules.unityanalytics
   name: com.unity.modules.unityanalytics
   displayName: Unity Analytics
@@ -2821,9 +2545,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -2842,7 +2563,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -2856,18 +2576,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.unitywebrequest@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequest
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequest
   assetPath: Packages/com.unity.modules.unitywebrequest
   name: com.unity.modules.unitywebrequest
   displayName: Unity Web Request
@@ -2898,9 +2612,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -2919,7 +2630,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -2933,18 +2643,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.unitywebrequestassetbundle@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestassetbundle
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestassetbundle
   assetPath: Packages/com.unity.modules.unitywebrequestassetbundle
   name: com.unity.modules.unitywebrequestassetbundle
   displayName: Unity Web Request Asset Bundle
@@ -2983,9 +2687,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -3004,7 +2705,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -3018,18 +2718,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.unitywebrequestaudio@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestaudio
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestaudio
   assetPath: Packages/com.unity.modules.unitywebrequestaudio
   name: com.unity.modules.unitywebrequestaudio
   displayName: Unity Web Request Audio
@@ -3068,9 +2762,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -3089,7 +2780,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -3103,18 +2793,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.unitywebrequesttexture@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequesttexture
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequesttexture
   assetPath: Packages/com.unity.modules.unitywebrequesttexture
   name: com.unity.modules.unitywebrequesttexture
   displayName: Unity Web Request Texture
@@ -3153,9 +2837,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -3174,7 +2855,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -3188,18 +2868,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.unitywebrequestwww@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestwww
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestwww
   assetPath: Packages/com.unity.modules.unitywebrequestwww
   name: com.unity.modules.unitywebrequestwww
   displayName: Unity Web Request WWW
@@ -3254,9 +2928,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -3275,7 +2946,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -3289,18 +2959,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.vehicles@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vehicles
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vehicles
   assetPath: Packages/com.unity.modules.vehicles
   name: com.unity.modules.vehicles
   displayName: Vehicles
@@ -3335,9 +2999,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -3356,7 +3017,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -3370,18 +3030,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.video@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.video
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.video
   assetPath: Packages/com.unity.modules.video
   name: com.unity.modules.video
   displayName: Video
@@ -3424,9 +3078,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -3445,7 +3096,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -3459,18 +3109,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.vr@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vr
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vr
   assetPath: Packages/com.unity.modules.vr
   name: com.unity.modules.vr
   displayName: VR
@@ -3515,9 +3159,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -3536,7 +3177,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -3550,18 +3190,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.wind@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.wind
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.wind
   assetPath: Packages/com.unity.modules.wind
   name: com.unity.modules.wind
   displayName: Wind
@@ -3592,9 +3226,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -3613,7 +3244,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -3627,18 +3257,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.xr@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.xr
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.xr
   assetPath: Packages/com.unity.modules.xr
   name: com.unity.modules.xr
   displayName: XR
@@ -3681,9 +3305,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -3702,7 +3323,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -3716,18 +3336,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.subsystems@1.0.0
   testable: 0
   isDirectDependency: 0
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.subsystems
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.subsystems
   assetPath: Packages/com.unity.modules.subsystems
   name: com.unity.modules.subsystems
   displayName: Subsystems
@@ -3762,9 +3376,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -3783,7 +3394,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 0
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -3797,18 +3407,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.modules.hierarchycore@1.0.0
   testable: 0
   isDirectDependency: 0
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.hierarchycore
+  resolvedPath: C:\Program Files\Unity\Hub\Editor\6000.1.15f1-x86_64\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.hierarchycore
   assetPath: Packages/com.unity.modules.hierarchycore
   name: com.unity.modules.hierarchycore
   displayName: Hierarchy Core
@@ -3839,9 +3443,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -3860,7 +3461,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 0
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -3874,18 +3474,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.ide.visualstudio@2.0.23
   testable: 0
   isDirectDependency: 0
   version: 2.0.23
   source: 1
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13
   assetPath: Packages/com.unity.ide.visualstudio
   name: com.unity.ide.visualstudio
   displayName: Visual Studio Editor
@@ -3951,12 +3545,9 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638786696173840000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.ide.visualstudio@2.0/manual/index.html
@@ -3972,7 +3563,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -3990,18 +3580,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 2.0.23
     minimumUnityVersion: 2019.4.25f1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.ide.rider@3.0.37
   testable: 0
   isDirectDependency: 0
   version: 3.0.37
   source: 1
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.ide.rider@0baf0f91edc0
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.ide.rider@0baf0f91edc0
   assetPath: Packages/com.unity.ide.rider
   name: com.unity.ide.rider
   displayName: JetBrains Rider Editor
@@ -4066,6 +3650,7 @@ m_ResolvedPackages:
     - 3.0.37
     - 3.0.38
     compatible:
+    - 3.0.36
     - 3.0.37
     - 3.0.38
     recommended: 3.0.38
@@ -4086,9 +3671,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 1
@@ -4102,12 +3684,11 @@ m_ResolvedPackages:
     revision: 39f00cc44029286564f951484a56b488a35df36d
     path: 
   unityLifecycle:
-    version: 3.0.37
+    version: 3.0.36
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 1
   deprecationMessage: '3.3.0.37 has a regression: newly created C# files are not
     added in the project'
@@ -4122,20 +3703,14 @@ m_ResolvedPackages:
   fingerprint: 0baf0f91edc004d6f71bbd74a38e2503a5f1228b
   editorCompatibility:
     compatibilityLevel: 0
-    minimumPackageVersion: 3.0.37
+    minimumPackageVersion: 3.0.36
     minimumUnityVersion: 2021.3.0a1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.editorcoroutines@1.0.0
   testable: 0
   isDirectDependency: 0
   version: 1.0.0
   source: 1
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.editorcoroutines@7d48783e7b8c
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.editorcoroutines@7d48783e7b8c
   assetPath: Packages/com.unity.editorcoroutines
   name: com.unity.editorcoroutines
   displayName: Editor Coroutines
@@ -4144,7 +3719,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: asset
+  type: 
   description: 'The editor coroutines package allows developers to start constructs
     similar to Unity''s monobehaviour based coroutines within the editor using abitrary
     objects. '
@@ -4178,12 +3753,9 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637232611380000000
   documentationUrl: 
@@ -4199,7 +3771,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -4213,18 +3784,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 2018.1.0a1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.performance.profile-analyzer@1.2.3
   testable: 0
   isDirectDependency: 0
   version: 1.2.3
   source: 1
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.performance.profile-analyzer@a68e7bc84997
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.performance.profile-analyzer@a68e7bc84997
   assetPath: Packages/com.unity.performance.profile-analyzer
   name: com.unity.performance.profile-analyzer
   displayName: Profile Analyzer
@@ -4272,12 +3837,9 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638699545898200000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.performance.profile-analyzer@1.2/manual/index.html
@@ -4293,7 +3855,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -4308,18 +3869,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.2.3
     minimumUnityVersion: 2020.3.0a1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.test-framework@1.5.1
   testable: 0
   isDirectDependency: 0
   version: 1.5.1
   source: 2
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.test-framework@038a2b0cacd2
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.test-framework@78fc86e3183e
   assetPath: Packages/com.unity.test-framework
   name: com.unity.test-framework
   displayName: Test Framework
@@ -4333,9 +3888,67 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
+    - 0.0.4-preview
+    - 0.0.29-preview
+    - 1.0.0
+    - 1.0.7
+    - 1.0.9
+    - 1.0.11
+    - 1.0.12
+    - 1.0.13
+    - 1.0.14
+    - 1.0.16
+    - 1.0.17
+    - 1.0.18
+    - 1.1.0
+    - 1.1.1
+    - 1.1.2
+    - 1.1.3
+    - 1.1.5
+    - 1.1.8
+    - 1.1.9
+    - 1.1.11
+    - 1.1.13
+    - 1.1.14
+    - 1.1.16
+    - 1.1.18
+    - 1.1.19
+    - 1.1.20
+    - 1.1.22
+    - 1.1.24
+    - 1.1.26
+    - 1.1.27
+    - 1.1.29
+    - 1.1.30
+    - 1.1.31
+    - 1.1.33
+    - 1.3.0
+    - 1.3.1
+    - 1.3.2
+    - 1.3.3
+    - 1.3.4
+    - 1.3.5
+    - 1.3.7
+    - 1.3.8
+    - 1.3.9
+    - 1.4.0
+    - 1.4.1
+    - 1.4.2
+    - 1.4.3
+    - 1.4.4
+    - 1.4.5
+    - 1.4.6
     - 1.5.1
+    - 2.0.1-exp.1
+    - 2.0.1-exp.2
+    - 2.0.1-pre.12
+    - 2.0.1-pre.18
     compatible:
     - 1.5.1
+    - 2.0.1-exp.1
+    - 2.0.1-exp.2
+    - 2.0.1-pre.12
+    - 2.0.1-pre.18
     recommended: 1.5.1
     deprecated: []
   dependencies:
@@ -4363,9 +3976,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -4384,7 +3994,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -4393,23 +4002,17 @@ m_ResolvedPackages:
   upmReserved: 
   assetStore:
     productId: 
-  fingerprint: 038a2b0cacd25d4e9668f9e0f7612139f5dbee81
+  fingerprint: 78fc86e3183ea0eb28659ac4e9b1e7b2eb54cb50
   editorCompatibility:
     compatibilityLevel: 0
     minimumPackageVersion: 1.5.1
-    minimumUnityVersion: 6000.0.44f1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
+    minimumUnityVersion: 2022.3.0a1
 - packageId: com.unity.testtools.codecoverage@1.2.6
   testable: 0
   isDirectDependency: 0
   version: 1.2.6
   source: 1
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.testtools.codecoverage@205a02cbcb39
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.testtools.codecoverage@205a02cbcb39
   assetPath: Packages/com.unity.testtools.codecoverage
   name: com.unity.testtools.codecoverage
   displayName: Code Coverage
@@ -4418,7 +4021,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: assets
+  type: 
   description: Use this package to export code coverage data and reports from your
     automated tests. Additionally, the Code Coverage package offers a Coverage Recording
     feature which allows capturing coverage data on demand, for manual testing or
@@ -4493,12 +4096,9 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638575857900000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.2/manual/index.html
@@ -4514,7 +4114,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 1
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -4533,18 +4132,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.2.6
     minimumUnityVersion: 2019.3.0a1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.settings-manager@2.1.0
   testable: 0
   isDirectDependency: 0
   version: 2.1.0
   source: 1
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.settings-manager@41738c275190
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.settings-manager@41738c275190
   assetPath: Packages/com.unity.settings-manager
   name: com.unity.settings-manager
   displayName: Settings Manager
@@ -4583,12 +4176,9 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638792046006940000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.settings-manager@2.1/manual/index.html
@@ -4604,7 +4194,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 0
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -4620,18 +4209,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 2.1.0
     minimumUnityVersion: 2022.3.0a1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
 - packageId: com.unity.ext.nunit@2.0.5
   testable: 0
   isDirectDependency: 0
   version: 2.0.5
   source: 2
-  resolvedPath: C:\dev\Games\SantasSafewordUnity\Library\PackageCache\com.unity.ext.nunit@031a54704bff
+  resolvedPath: D:\Dev\SantaKlaus\Library\PackageCache\com.unity.ext.nunit@031a54704bff
   assetPath: Packages/com.unity.ext.nunit
   name: com.unity.ext.nunit
   displayName: Custom NUnit
@@ -4646,6 +4229,15 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
+    - 0.1.5-preview
+    - 0.1.6-preview
+    - 0.1.9-preview
+    - 1.0.0
+    - 1.0.5
+    - 1.0.6
+    - 2.0.2
+    - 2.0.3
+    - 2.0.4
     - 2.0.5
     compatible:
     - 2.0.5
@@ -4665,9 +4257,6 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-    compliance:
-      status: 0
-      violations: []
   hideInEditor: 1
   entitlements:
     licensingModel: 0
@@ -4686,7 +4275,6 @@ m_ResolvedPackages:
     recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
-    isDiscoverable: 0
   isDeprecated: 0
   deprecationMessage: 
   git:
@@ -4700,10 +4288,4 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 2.0.5
     minimumUnityVersion: 2019.4.0a1
-  compliance:
-    status: 0
-    violation:
-      scopePatternExpression: 
-      message: 
-      readMoreLink: 
-m_BuiltInPackagesHash: 624c60e5304f5ae31f8f5d3f50e510a896704e74
+m_BuiltInPackagesHash: 263904b2f354ee34ec3a78b8f37ea3eff30b3384
