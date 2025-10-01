@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Move: {x: 0, y: 0}
+  Look: {x: 0, y: 0}
 --- !u!4 &637330897
 Transform:
   m_ObjectHideFlags: 0
@@ -364,6 +365,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   input: {fileID: 637330896}
+  speed: 5
+  lookSensitivity: 50
+  cameraPivot: {fileID: 963194228}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
