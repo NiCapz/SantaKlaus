@@ -412,6 +412,7 @@
 "Assets/Retro 3D Shader Pack for Unity/Shaders/Post-Processing/RetroPostProcessEffect.cs"
 "Assets/Scripts/Input.cs"
 "Assets/Scripts/InputSystem_Actions.cs"
+"Assets/Scripts/Npc.cs"
 "Assets/Scripts/Player.cs"
 -langversion:9.0
 /deterministic

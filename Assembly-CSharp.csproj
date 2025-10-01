@@ -51,6 +51,7 @@
     <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Post-Processing\RetroPostProcessEffect.cs" />
     <Compile Include="Assets\Scripts\InputSystem_Actions.cs" />
     <Compile Include="Assets\Scripts\Input.cs" />
+    <Compile Include="Assets\Scripts\Npc.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
   </ItemGroup>
   <ItemGroup>
