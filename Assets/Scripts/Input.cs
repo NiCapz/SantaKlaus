@@ -25,11 +25,9 @@ public class Input : MonoBehaviour
 
         playerInput.Player.Move.performed += context => Move = context.ReadValue<Vector2>();
         playerInput.Player.Move.canceled += context => Move = Vector2.zero;
-    }
 
-    void Update()
-    {
-        Look = playerInput.Player.Look.ReadValue<Vector2>();
+        playerInput.Player.Look.performed += context => Look = context.ReadValue<Vector2>();
+        playerInput.Player.Look.canceled += context => Look = Vector2.zero;
     }
     
     public bool GrabPressed() => playerInput.Player.Interact.WasPerformedThisFrame();
