@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: FPCamera Profile
+  m_Name: FPCamera Profile 1
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 5233166359560467824}
---- !u!114 &5233166359560467824
+  - {fileID: 3426911990211610692}
+--- !u!114 &3426911990211610692
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34,8 +34,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   PixelScale:
-    overrideState: 1
-    value: 2
+    overrideState: 0
+    value: 4
   FixedVerticalResolution:
     overrideState: 0
     value: 480
@@ -43,15 +43,15 @@ MonoBehaviour:
     overrideState: 0
     value: 0.15
   DitherPattern:
-    overrideState: 1
+    overrideState: 0
     value: {fileID: 0}
     defaultState: 0
   DitherPatternScale:
-    overrideState: 1
+    overrideState: 0
     value: 1
   DitherThreshold:
-    overrideState: 1
+    overrideState: 0
     value: 0.75
   DitherIntensity:
-    overrideState: 1
+    overrideState: 0
     value: 0.15
