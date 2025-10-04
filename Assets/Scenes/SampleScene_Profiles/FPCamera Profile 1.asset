@@ -31,27 +31,27 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   UsesFixedResolution:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 1
   PixelScale:
-    overrideState: 0
-    value: 4
+    overrideState: 1
+    value: 2
   FixedVerticalResolution:
-    overrideState: 0
-    value: 480
+    overrideState: 1
+    value: 360
   ColorDepth:
-    overrideState: 0
-    value: 0.15
+    overrideState: 1
+    value: 0.228
   DitherPattern:
-    overrideState: 0
-    value: {fileID: 0}
+    overrideState: 1
+    value: {fileID: 2800000, guid: 33e4517dca3a2274ba1532dd85e3c541, type: 3}
     defaultState: 0
   DitherPatternScale:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 2
   DitherThreshold:
-    overrideState: 0
-    value: 0.75
+    overrideState: 1
+    value: 0.13
   DitherIntensity:
-    overrideState: 0
-    value: 0.15
+    overrideState: 1
+    value: 0.1
