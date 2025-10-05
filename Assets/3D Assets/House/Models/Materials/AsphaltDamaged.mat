@@ -65,14 +65,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AffineMapIntensity: 0.05
+    - _AffineMapIntensity: 0.00125
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DrawDist: 0
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.245
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0

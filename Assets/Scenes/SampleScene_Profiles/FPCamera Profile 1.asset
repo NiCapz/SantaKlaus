@@ -41,7 +41,7 @@ MonoBehaviour:
     value: 360
   ColorDepth:
     overrideState: 1
-    value: 0.228
+    value: 0.15
   DitherPattern:
     overrideState: 1
     value: {fileID: 2800000, guid: 33e4517dca3a2274ba1532dd85e3c541, type: 3}
