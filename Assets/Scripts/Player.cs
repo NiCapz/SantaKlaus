@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -7,7 +9,11 @@ public class Player : MonoBehaviour
     private CharacterController controller;
 
     [SerializeField] private Input input;
-    [SerializeField] private float speed = 50f;
+
+    [SerializeField] private float sprintSpeed = 15f;
+    [SerializeField] private float walkSpeed = 10f;
+    private float speed;
+
     [SerializeField] private float lookSensitivity = 50f;
     [SerializeField] private Transform cameraPivot;
 
@@ -16,9 +22,12 @@ public class Player : MonoBehaviour
     void Awake()
     {
         controller = GetComponent<CharacterController>();
-
     }
 
+    void Start()
+    {
+        speed = walkSpeed;
+    }
 
     void Update()
     {
@@ -36,6 +45,18 @@ public class Player : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX);
 
         // ---- Movement ----
+        if (Input.Instance.SprintPressed())
+        {
+            Debug.Log(Input.Instance.SprintPressed());
+            //Mathf.Lerp(speed, sprintSpeed, 0.5f);
+            speed = sprintSpeed;
+        }
+        else
+        {
+            //Mathf.Lerp(speed, walkSpeed, 0.5f);
+            speed = walkSpeed;
+        }
+        Debug.Log(speed);
         Vector2 twoDMoveDir = Input.Instance.Move; // use your singleton input
         Vector3 moveDir = transform.right * twoDMoveDir.x + transform.forward * twoDMoveDir.y;
         moveDir = Vector3.ClampMagnitude(moveDir, 1f);

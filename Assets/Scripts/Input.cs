@@ -8,6 +8,7 @@ public class Input : MonoBehaviour
     private InputSystem_Actions playerInput;
     public Vector2 Move;
     public Vector2 Look;
+    public bool sprintPressed = false;
 
     void Awake()
     {
@@ -28,8 +29,11 @@ public class Input : MonoBehaviour
 
         playerInput.Player.Look.performed += context => Look = context.ReadValue<Vector2>();
         playerInput.Player.Look.canceled += context => Look = Vector2.zero;
-    }
-    
+
+        }
+
     public bool GrabPressed() => playerInput.Player.Interact.WasPerformedThisFrame();
     public bool JumpPressed() => playerInput.Player.Jump.WasPerformedThisFrame();
+    public bool SprintPressed() => playerInput.Player.Sprint.IsPressed();
+    
 }
