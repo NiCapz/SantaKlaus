@@ -1,7 +1,4 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Animations;
 
 public class Player : MonoBehaviour
 {
@@ -31,6 +28,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
         Vector2 look = Input.Instance.Look;
 
         float mouseX = look.x * lookSensitivity * Time.deltaTime;
@@ -56,22 +54,17 @@ public class Player : MonoBehaviour
             //Mathf.Lerp(speed, walkSpeed, 0.5f);
             speed = walkSpeed;
         }
-        Debug.Log(speed);
+
         Vector2 twoDMoveDir = Input.Instance.Move; // use your singleton input
         Vector3 moveDir = transform.right * twoDMoveDir.x + transform.forward * twoDMoveDir.y;
         moveDir = Vector3.ClampMagnitude(moveDir, 1f);
 
         controller.Move(moveDir * speed * Time.deltaTime);
 
-        /*
-        if (input.GrabPressed())
-        {
-            Debug.Log("Grab pressed");
-        }
         if (input.JumpPressed())
         {
             Debug.Log("jump pressed");
-        }*/
+        }
 
     }
 }
