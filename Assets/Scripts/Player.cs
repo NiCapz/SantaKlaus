@@ -6,12 +6,12 @@ public class Player : MonoBehaviour
 
     private CharacterController controller;
     [SerializeField] private Animator animator;
-
     [SerializeField] private Input input;
+    private ParticleSystem pissSystem;
 
     [SerializeField] private float gravity = -9.81f;
-    [SerializeField] private float sprintSpeed = 15f;
-    [SerializeField] private float walkSpeed = 10f;
+    [SerializeField] private float sprintSpeed = 10f;
+    [SerializeField] private float walkSpeed = 5f;
     private float speed;
 
     [SerializeField] private float lookSensitivity = 50f;
@@ -23,15 +23,19 @@ public class Player : MonoBehaviour
     private float xRotation = 0f;
 
     public bool grabbing = false;
+    public bool pissing = false;
+    
 
-    void Awake()
+    void Awake()   
     {
         controller = GetComponent<CharacterController>();
+        pissSystem = GetComponentInChildren<ParticleSystem>();
     }
 
     void Start()
     {
         speed = walkSpeed;
+        pissSystem.Pause();
     }
 
 
@@ -55,6 +59,16 @@ public class Player : MonoBehaviour
 
         if (Input.Instance.GrabPressed())
         {
+            if (!pissing)
+            {
+                pissSystem.Play();
+                pissing = true;
+            }
+            else
+            {
+                pissSystem.Stop();
+                pissing = false;
+            }
             grabbing = true;
             animator.SetBool("grabbing", true);
         }
@@ -64,30 +78,27 @@ public class Player : MonoBehaviour
         float mouseX = look.x * lookSensitivity * Time.deltaTime;
         float mouseY = look.y * lookSensitivity * Time.deltaTime;
 
-        // Pitch (camera up/down)
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         cameraPivot.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        // Yaw (player body left/right)
         transform.Rotate(Vector3.up * mouseX);
 
-        // ---- Movement ----
         if (Input.Instance.SprintPressed())
         {
-            Debug.Log(Input.Instance.SprintPressed());
-            //Mathf.Lerp(speed, sprintSpeed, 0.5f);
+            Mathf.Lerp(speed, sprintSpeed, 0.5f);
             speed = sprintSpeed;
         }
         else
         {
-            //Mathf.Lerp(speed, walkSpeed, 0.5f);
+            Mathf.Lerp(speed, walkSpeed, 0.5f);
             speed = walkSpeed;
         }
 
         Vector2 twoDMoveDir = Input.Instance.Move; // use your singleton input
         Vector3 moveDir = transform.right * twoDMoveDir.x + transform.forward * twoDMoveDir.y;
         moveDir = Vector3.ClampMagnitude(moveDir, 1f);
+        //moveDir = -moveDir;
 
         if (!controller.isGrounded)
         {
