@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
 
     private CharacterController controller;
+    [SerializeField] private Animator animator;
 
     [SerializeField] private Input input;
 
@@ -15,16 +17,16 @@ public class Player : MonoBehaviour
     [SerializeField] private float lookSensitivity = 50f;
     [SerializeField] private Transform cameraPivot;
 
+    [SerializeField] private GameObject attachPoint;
+    private Transform heldItem;
+
     private float xRotation = 0f;
+
+    public bool grabbing = false;
 
     void Awake()
     {
         controller = GetComponent<CharacterController>();
-    }
-
-    public void DoSomething()
-    {
-        Debug.Log("yipppie");
     }
 
     void Start()
@@ -32,8 +34,30 @@ public class Player : MonoBehaviour
         speed = walkSpeed;
     }
 
+
+    public void SetGrabbingFalse()
+    {
+        animator.SetBool("grabbing", false);
+        grabbing = false;
+
+        if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, 1.5f))
+        {
+            heldItem = hit.transform;
+            heldItem.SetParent(attachPoint.transform);
+            heldItem.localPosition = Vector3.zero;
+        }        
+    }
+
     void Update()
     {
+
+        Debug.Log(grabbing);
+
+        if (Input.Instance.GrabPressed())
+        {
+            grabbing = true;
+            animator.SetBool("grabbing", true);
+        }
 
         Vector2 look = Input.Instance.Look;
 
