@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Input input;
 
+    [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float sprintSpeed = 15f;
     [SerializeField] private float walkSpeed = 10f;
     private float speed;
@@ -19,6 +20,11 @@ public class Player : MonoBehaviour
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+    }
+
+    public void DoSomething()
+    {
+        Debug.Log("yipppie");
     }
 
     void Start()
@@ -58,6 +64,11 @@ public class Player : MonoBehaviour
         Vector2 twoDMoveDir = Input.Instance.Move; // use your singleton input
         Vector3 moveDir = transform.right * twoDMoveDir.x + transform.forward * twoDMoveDir.y;
         moveDir = Vector3.ClampMagnitude(moveDir, 1f);
+
+        if (!controller.isGrounded)
+        {
+            moveDir.y += gravity;
+        }
 
         controller.Move(moveDir * speed * Time.deltaTime);
 
