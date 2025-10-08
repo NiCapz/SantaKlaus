@@ -9,6 +9,7 @@ public class Input : MonoBehaviour
     public Vector2 Move;
     public Vector2 Look;
     public bool sprintPressed = false;
+    [SerializeField] private Player player;
 
     void Awake()
     {
@@ -30,9 +31,32 @@ public class Input : MonoBehaviour
         playerInput.Player.Look.performed += context => Look = context.ReadValue<Vector2>();
         playerInput.Player.Look.canceled += context => Look = Vector2.zero;
 
-        }
+        playerInput.Player.Piss.performed += OnPissPressed;
+        playerInput.Player.Piss.canceled += OnPissReleased;
 
-    public bool GrabPressed() => playerInput.Player.Interact.WasPerformedThisFrame();
+        playerInput.Player.Interact.performed += OnInteractPressed;
+        playerInput.Player.Interact.canceled += OnInteractReleased;
+
+    }
+
+    private void OnPissPressed(InputAction.CallbackContext context)
+    {
+        player.EnablePiss();
+    }
+    private void OnPissReleased(InputAction.CallbackContext context)
+    {
+        player.DisablePiss();
+    }
+    private void OnInteractPressed(InputAction.CallbackContext context)
+    {
+        player.TryGrab();
+    }
+    private void OnInteractReleased(InputAction.CallbackContext context)
+    {
+        
+    }
+
+    //public bool GrabPressed() => playerInput.Player.Interact.WasPerformedThisFrame();
     public bool JumpPressed() => playerInput.Player.Jump.WasPerformedThisFrame();
     public bool SprintPressed() => playerInput.Player.Sprint.IsPressed();
     

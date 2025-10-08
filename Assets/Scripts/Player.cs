@@ -24,9 +24,9 @@ public class Player : MonoBehaviour
 
     public bool grabbing = false;
     public bool pissing = false;
-    
 
-    void Awake()   
+
+    void Awake()
     {
         controller = GetComponent<CharacterController>();
         pissSystem = GetComponentInChildren<ParticleSystem>();
@@ -36,6 +36,18 @@ public class Player : MonoBehaviour
     {
         speed = walkSpeed;
         pissSystem.Pause();
+    }
+
+    public void EnablePiss()
+    {
+            pissSystem.Play();
+            pissing = true;
+    }
+
+    public void DisablePiss()
+    {
+        pissSystem.Stop();
+        pissing = false;
     }
 
 
@@ -49,29 +61,24 @@ public class Player : MonoBehaviour
             heldItem = hit.transform;
             heldItem.SetParent(attachPoint.transform);
             heldItem.localPosition = Vector3.zero;
-        }        
+        }
+    }
+
+    public void TryGrab()
+    {
+        if (heldItem == null)
+        {
+            grabbing = true;
+            animator.SetBool("grabbing", true);
+        }
+        else
+        {
+            heldItem.transform.parent = null;
+        }
     }
 
     void Update()
     {
-
-        Debug.Log(grabbing);
-
-        if (Input.Instance.GrabPressed())
-        {
-            if (!pissing)
-            {
-                pissSystem.Play();
-                pissing = true;
-            }
-            else
-            {
-                pissSystem.Stop();
-                pissing = false;
-            }
-            grabbing = true;
-            animator.SetBool("grabbing", true);
-        }
 
         Vector2 look = Input.Instance.Look;
 
