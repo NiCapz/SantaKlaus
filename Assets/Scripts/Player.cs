@@ -25,6 +25,10 @@ public class Player : MonoBehaviour
     public bool grabbing = false;
     public bool pissing = false;
 
+    private float cameraFlip = 0f;
+    private int invertControls = 1;
+    private bool fuckedControls = false;
+
 
     void Awake()
     {
@@ -40,8 +44,8 @@ public class Player : MonoBehaviour
 
     public void EnablePiss()
     {
-            pissSystem.Play();
-            pissing = true;
+        pissSystem.Play();
+        pissing = true;
     }
 
     public void DisablePiss()
@@ -77,17 +81,41 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ToggleFuckControls()
+    {
+        if (!fuckedControls)
+        {
+            cameraFlip = 180f;
+            invertControls = -1;
+            fuckedControls = true;
+            gravity = 9.81f;
+        }
+        else
+        {
+            cameraFlip = 0f;
+            invertControls = 1;
+            fuckedControls = false;
+            gravity = -9.81f;
+        }
+    }
+
+    public void UnfuckControls()
+    {
+    }
+
     void Update()
     {
 
+
         Vector2 look = Input.Instance.Look;
+        look *= invertControls;
 
         float mouseX = look.x * lookSensitivity * Time.deltaTime;
         float mouseY = look.y * lookSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        cameraPivot.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        cameraPivot.localRotation = Quaternion.Euler(xRotation, 0f, cameraFlip);
 
         transform.Rotate(Vector3.up * mouseX);
 
@@ -105,6 +133,7 @@ public class Player : MonoBehaviour
         Vector2 twoDMoveDir = Input.Instance.Move; // use your singleton input
         Vector3 moveDir = transform.right * twoDMoveDir.x + transform.forward * twoDMoveDir.y;
         moveDir = Vector3.ClampMagnitude(moveDir, 1f);
+        moveDir *= invertControls;
         //moveDir = -moveDir;
 
         if (!controller.isGrounded)

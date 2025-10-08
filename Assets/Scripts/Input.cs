@@ -37,6 +37,18 @@ public class Input : MonoBehaviour
         playerInput.Player.Interact.performed += OnInteractPressed;
         playerInput.Player.Interact.canceled += OnInteractReleased;
 
+        playerInput.Player.Jump.performed += OnJumpPressed;
+        playerInput.Player.Jump.canceled += OnJumpReleased;
+
+    }
+
+    private void OnJumpPressed(InputAction.CallbackContext context)
+    {
+        player.ToggleFuckControls();
+    }
+    private void OnJumpReleased(InputAction.CallbackContext context)
+    {
+        player.UnfuckControls();
     }
 
     private void OnPissPressed(InputAction.CallbackContext context)
