@@ -40,6 +40,18 @@ public class Input : MonoBehaviour
         playerInput.Player.Jump.performed += OnJumpPressed;
         playerInput.Player.Jump.canceled += OnJumpReleased;
 
+        playerInput.Player.Sprint.performed += OnSprintPressed;
+        playerInput.Player.Sprint.canceled += OnSprintReleased;
+
+    }
+
+    private void OnSprintPressed(InputAction.CallbackContext context)
+    {
+        player.SetDesiredSpeed(Player.TargetSpeed.SprintSpeed);
+    }
+    private void OnSprintReleased(InputAction.CallbackContext context)
+    {
+        player.SetDesiredSpeed(Player.TargetSpeed.WalkSpeed);
     }
 
     private void OnJumpPressed(InputAction.CallbackContext context)
