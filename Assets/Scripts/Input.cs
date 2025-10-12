@@ -32,13 +32,10 @@ public class Input : MonoBehaviour
         playerInput.Player.Look.canceled += context => Look = Vector2.zero;
 
         playerInput.Player.Piss.performed += OnPissPressed;
-        playerInput.Player.Piss.canceled += OnPissReleased;
 
         playerInput.Player.Interact.performed += OnInteractPressed;
-        playerInput.Player.Interact.canceled += OnInteractReleased;
 
         playerInput.Player.Jump.performed += OnJumpPressed;
-        playerInput.Player.Jump.canceled += OnJumpReleased;
 
         playerInput.Player.Sprint.performed += OnSprintPressed;
         playerInput.Player.Sprint.canceled += OnSprintReleased;
@@ -58,26 +55,15 @@ public class Input : MonoBehaviour
     {
         player.Jump();
     }
-    private void OnJumpReleased(InputAction.CallbackContext context)
-    {
-        
-    }
 
     private void OnPissPressed(InputAction.CallbackContext context)
     {
-        player.EnablePiss();
+        player.TogglePiss();
     }
-    private void OnPissReleased(InputAction.CallbackContext context)
-    {
-        player.DisablePiss();
-    }
+    
     private void OnInteractPressed(InputAction.CallbackContext context)
     {
         player.TryGrab();
-    }
-    private void OnInteractReleased(InputAction.CallbackContext context)
-    {
-        
     }
 
     //public bool GrabPressed() => playerInput.Player.Interact.WasPerformedThisFrame();

@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
         LerpSpeedToDesired();
         Look();
         Move();
-        if (input.JumpPressed()) Debug.Log("jump pressed");
     }
 
     void Look()
@@ -88,7 +87,7 @@ public class Player : MonoBehaviour
         isGrounded = controller.isGrounded;
 
         //if (isGrounded) velocity.y = -2f;
-        
+
         Vector2 twoDMoveDir = Input.Instance.Move;
         Vector3 moveDir = transform.right * twoDMoveDir.x + transform.forward * twoDMoveDir.y;
         moveDir = Vector3.ClampMagnitude(moveDir, 1f);
@@ -138,15 +137,21 @@ public class Player : MonoBehaviour
     }
 
     // immersion methods
-    public void EnablePiss()
+    public void TogglePiss()
     {
-        pissSystem.Play();
-        pissing = true;
+        if (!pissing)
+        {
+            pissSystem.Play();
+            pissing = true;
+        }
+        else
+        {
+            pissSystem.Stop();
+            pissing = false;
+        }
     }
     public void DisablePiss()
     {
-        pissSystem.Stop();
-        pissing = false;
     }
     public void ToggleFuckControls()
     {

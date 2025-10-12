@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,7 +6,8 @@ public class Pickup : MonoBehaviour
 
     private Rigidbody physicsBody;
     private bool taken = false;
-    public BoxCollider boxCollider;
+    [SerializeField] Vector3 Offset = Vector3.zero;
+    private GameObject attachPoint;
 
     void Awake()
     {
@@ -16,32 +16,31 @@ public class Pickup : MonoBehaviour
         {
             physicsBody = GetComponentInChildren<Rigidbody>();
         }
-        boxCollider = GetComponent<BoxCollider>();
     }
 
     void Update()
     {
+        Debug.Log($"Local Position: {transform.localPosition}");
+        Debug.Log($"Global Position: {transform.position}");
         if (taken)
         {
-            transform.position = GetComponentInParent<Transform>().position;
         }
     }
 
     public void Take(Player player)
     {
+        //transform.localPosition += Offset;
         transform.SetParent(player.attachPoint.transform);
+        attachPoint = player.attachPoint;
+        //transform.localPosition = Offset;
         transform.localPosition = Vector3.zero;
         if (physicsBody != null)
         {
             physicsBody.isKinematic = true;
             physicsBody.detectCollisions = false;
-            
         }
+        transform.localPosition = Offset;
         taken = true;
-        if (boxCollider)
-        {
-            //boxCollider.enabled = false;
-        }
     }
 
     public void Drop()
@@ -49,12 +48,8 @@ public class Pickup : MonoBehaviour
         transform.SetParent(null);
         if (physicsBody != null)
         {
-            //physicsBody.isKinematic = true;
-            
-        }
-        if (boxCollider)
-        {
-            boxCollider.enabled = true;
+            physicsBody.isKinematic = false;
+            physicsBody.detectCollisions = true;
         }
     }
 
