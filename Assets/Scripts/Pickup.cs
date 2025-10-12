@@ -1,26 +1,46 @@
+using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Pickup : MonoBehaviour
 {
 
     private Rigidbody physicsBody;
+    private bool taken = false;
+    public BoxCollider boxCollider;
 
     void Awake()
     {
         physicsBody = GetComponent<Rigidbody>();
-        if (physicsBody = null)
+        if (physicsBody == null)
         {
             physicsBody = GetComponentInChildren<Rigidbody>();
         }
+        boxCollider = GetComponent<BoxCollider>();
     }
 
-    public void Grab(Player player)
+    void Update()
+    {
+        if (taken)
+        {
+            transform.position = GetComponentInParent<Transform>().position;
+        }
+    }
+
+    public void Take(Player player)
     {
         transform.SetParent(player.attachPoint.transform);
         transform.localPosition = Vector3.zero;
         if (physicsBody != null)
         {
-            physicsBody.isKinematic = false;
+            physicsBody.isKinematic = true;
+            physicsBody.detectCollisions = false;
+            
+        }
+        taken = true;
+        if (boxCollider)
+        {
+            //boxCollider.enabled = false;
         }
     }
 
@@ -29,7 +49,12 @@ public class Pickup : MonoBehaviour
         transform.SetParent(null);
         if (physicsBody != null)
         {
-            physicsBody.isKinematic = true;
+            //physicsBody.isKinematic = true;
+            
+        }
+        if (boxCollider)
+        {
+            boxCollider.enabled = true;
         }
     }
 

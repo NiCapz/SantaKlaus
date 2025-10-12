@@ -2,81 +2,38 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // Player Singleton
+    public static Player Instance { get; private set; }
     public enum TargetSpeed { SprintSpeed = 10, WalkSpeed = 5, CrouchSpeed = 2 }
 
-    public static Player Instance { get; private set; }
-
+    // Components
     [SerializeField] private Animator animator;
     [SerializeField] private Input input;
     [SerializeField] private Transform cameraPivot;
-    [SerializeField] public GameObject attachPoint;
-
     private CharacterController controller;
     private ParticleSystem pissSystem;
+    public GameObject attachPoint;
 
+    // Constants
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float lookSensitivity = 50f;
+    [SerializeField] private float jumpHeight = .35f;
 
+    // state - stats
+    private Vector3 velocity;
     private float currentSpeed;
     private float desiredSpeed;
-
-    private Pickup heldItem;
-
     private float xRotation = 0f;
 
-    public bool grabbing = false;
+    // state - inventory
+    private Pickup heldItem;
+
+    // state - binary values
     public bool pissing = false;
-
     private float cameraFlip = 0f;
-    private int invertControls = 1;
     private bool fuckedControls = false;
-
-    public void SetDesiredSpeed(TargetSpeed newDesiredSpeed)
-    {
-        desiredSpeed = (float) newDesiredSpeed;
-    }
-
-    private void LerpSpeedToDesired()
-    {
-        if (currentSpeed != desiredSpeed) currentSpeed = Mathf.Lerp(currentSpeed, desiredSpeed, 0.5f);
-    }
-
-    void Update()
-    {
-        Debug.Log(currentSpeed);
-        LerpSpeedToDesired();
-
-        Vector2 look;
-        look = Input.Instance.Look;
-        look *= invertControls;
-
-        float mouseX = look.x * lookSensitivity * Time.deltaTime;
-        float mouseY = look.y * lookSensitivity * Time.deltaTime;
-
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        cameraPivot.localRotation = Quaternion.Euler(xRotation, 0f, cameraFlip);
-
-        transform.Rotate(Vector3.up * mouseX);
-
-        Vector2 twoDMoveDir = Input.Instance.Move;
-        Vector3 moveDir = transform.right * twoDMoveDir.x + transform.forward * twoDMoveDir.y;
-        moveDir = Vector3.ClampMagnitude(moveDir, 1f);
-        moveDir *= invertControls;
-
-        if (!controller.isGrounded)
-        {
-            moveDir.y += gravity;
-        }
-
-        controller.Move(moveDir * currentSpeed * Time.deltaTime);
-
-        if (input.JumpPressed())
-        {
-            Debug.Log("jump pressed");
-        }
-
-    }
+    private int invertControls = 1;
+    private bool isGrounded;
 
     void Awake()
     {
@@ -98,49 +55,99 @@ public class Player : MonoBehaviour
         pissSystem.Pause();
     }
 
-    public void EnablePiss()
+    void Update()
     {
-        pissSystem.Play();
-        pissing = true;
+        LerpSpeedToDesired();
+        Look();
+        Move();
+        if (input.JumpPressed()) Debug.Log("jump pressed");
     }
 
-    public void DisablePiss()
+    void Look()
     {
-        pissSystem.Stop();
-        pissing = false;
+        Vector2 look;
+        look = Input.Instance.Look;
+        look *= invertControls;
+
+        float mouseX = look.x * lookSensitivity * Time.deltaTime;
+        float mouseY = look.y * lookSensitivity * Time.deltaTime;
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        cameraPivot.localRotation = Quaternion.Euler(xRotation, 0f, cameraFlip);
+
+        transform.Rotate(Vector3.up * mouseX);
+    }
+    public void Jump()
+    {
+        if (isGrounded) velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
     }
 
-    // called by the animator near the end of the grabbing animation
-    // emits raycast for item and reenables ability to grab
+    void Move()
+    {
+        isGrounded = controller.isGrounded;
+
+        //if (isGrounded) velocity.y = -2f;
+        
+        Vector2 twoDMoveDir = Input.Instance.Move;
+        Vector3 moveDir = transform.right * twoDMoveDir.x + transform.forward * twoDMoveDir.y;
+        moveDir = Vector3.ClampMagnitude(moveDir, 1f);
+        moveDir *= invertControls;
+
+
+        if (!isGrounded) velocity.y += gravity * Time.deltaTime;
+
+        moveDir += velocity;
+        controller.Move(moveDir * currentSpeed * Time.deltaTime);
+        //controller.Move(velocity * Time.deltaTime);
+    }
+
+    //movement functions
+    public void SetDesiredSpeed(TargetSpeed newDesiredSpeed)
+    {
+        desiredSpeed = (float)newDesiredSpeed;
+    }
+    private void LerpSpeedToDesired()
+    {
+        if (currentSpeed != desiredSpeed) currentSpeed = Mathf.Lerp(currentSpeed, desiredSpeed, 0.5f);
+    }
+
+    // interaction functions
     public void SetGrabbingFalse()
     {
-        grabbing = false;
+        // called by the animator near the end of the grabbing animation
+        // emits raycast for item and reenables ability to grab
+        Debug.Log("grabbing false");
         animator.SetBool("grabbing", false);
 
         if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, 1.5f))
         {
             heldItem = hit.collider.GetComponent<Pickup>();
-            if (heldItem != null)
-            {
-                heldItem.Grab(this);
-            }
-
+            if (heldItem) heldItem.Take(this);
         }
     }
-    // Callback for the InputSystem, called if the interact button was pressd
     public void TryGrab()
     {
-        if (heldItem == null)
-        {
-            grabbing = true;
-            animator.SetBool("grabbing", true);
-        }
+        // Callback for the InputSystem, called if the interact button was pressd
+        if (heldItem == null) animator.SetBool("grabbing", true);
         else
         {
             heldItem.Drop();
+            heldItem = null;
         }
     }
 
+    // immersion methods
+    public void EnablePiss()
+    {
+        pissSystem.Play();
+        pissing = true;
+    }
+    public void DisablePiss()
+    {
+        pissSystem.Stop();
+        pissing = false;
+    }
     public void ToggleFuckControls()
     {
         if (!fuckedControls)
@@ -157,9 +164,5 @@ public class Player : MonoBehaviour
             fuckedControls = false;
             gravity = -9.81f;
         }
-    }
-
-    public void UnfuckControls()
-    {
     }
 }

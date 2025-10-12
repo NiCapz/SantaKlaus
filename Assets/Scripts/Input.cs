@@ -56,11 +56,11 @@ public class Input : MonoBehaviour
 
     private void OnJumpPressed(InputAction.CallbackContext context)
     {
-        player.ToggleFuckControls();
+        player.Jump();
     }
     private void OnJumpReleased(InputAction.CallbackContext context)
     {
-        player.UnfuckControls();
+        
     }
 
     private void OnPissPressed(InputAction.CallbackContext context)
