@@ -7,9 +7,8 @@ public class Pickup : MonoBehaviour
 
     private Rigidbody physicsBody;
     private bool taken = false;
-    [SerializeField] Vector3 offset = Vector3.zero;
     private GameObject attachPoint;
-    private Player playerObject;
+    [SerializeField] Vector3 offset = Vector3.zero;
 
     void Awake()
     {
@@ -30,7 +29,6 @@ public class Pickup : MonoBehaviour
 
     public void Take(Player player)
     {
-        playerObject = player;
         //transform.localPosition += Offset;
         transform.SetParent(player.attachPoint.transform);
         attachPoint = player.attachPoint;
@@ -45,7 +43,7 @@ public class Pickup : MonoBehaviour
         taken = true;
     }
 
-    public void Drop(float thrustPower)
+    public void Drop(Vector3 direction)
     {
         transform.SetParent(null);
         if (physicsBody != null)
@@ -55,7 +53,7 @@ public class Pickup : MonoBehaviour
         }
         taken = false;
 
-        physicsBody.AddForce(playerObject.transform.forward * thrustPower, ForceMode.Impulse);
+        physicsBody.AddForce(direction, ForceMode.Impulse);
     }
 
 }

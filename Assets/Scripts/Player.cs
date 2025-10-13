@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -25,9 +26,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpHeight = .35f;
     [SerializeField] private float grabRange = 2f;
     [SerializeField] private float throwingPower = 1f;
+    [SerializeField] private float maxThrowCharge = 1000f;
 
 
-    // state - stats
+
+    // state - movement stats
     private Vector3 velocity;
     private float currentSpeed;
     private float desiredSpeed;
@@ -43,8 +46,8 @@ public class Player : MonoBehaviour
     private int invertControls = 1;
     private bool isGrounded;
 
-    // timer
-
+    // game stats
+    private int presentCounter = 0;
 
     void Awake()
     {
@@ -145,17 +148,19 @@ public class Player : MonoBehaviour
         if (heldItem)
         {
             float thrustPower = stopwatch.ElapsedMilliseconds / 100 * throwingPower;
-            Debug.Log(thrustPower);
+            Math.Clamp(thrustPower, 0, maxThrowCharge);
+            heldItem.Drop(cameraPivot.transform.forward * thrustPower);
+            heldItem = null;
+
             stopwatch.Stop();
             stopwatch.Reset();
-            heldItem.Drop(thrustPower);
-            heldItem = null;
         }
     }
 
     // immersion methods
     public void TogglePiss()
     {
+        Debug.Log(presentCounter);
         if (!pissing)
         {
             pissSystem.Play();
@@ -184,5 +189,9 @@ public class Player : MonoBehaviour
             fuckedControls = false;
             gravity = -9.81f;
         }
+    }
+    public void IncrementPresentCounter()
+    {
+        presentCounter++;
     }
 }
