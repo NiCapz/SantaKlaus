@@ -34,6 +34,7 @@ public class Input : MonoBehaviour
         playerInput.Player.Piss.performed += OnPissPressed;
 
         playerInput.Player.Interact.performed += OnInteractPressed;
+        playerInput.Player.Interact.canceled += OnInteractReleased;
 
         playerInput.Player.Jump.performed += OnJumpPressed;
 
@@ -60,11 +61,17 @@ public class Input : MonoBehaviour
     {
         player.TogglePiss();
     }
-    
+
     private void OnInteractPressed(InputAction.CallbackContext context)
     {
         player.TryGrab();
     }
+    private void OnInteractReleased(InputAction.CallbackContext context)
+    {
+        player.Release();
+    }
+    
+
 
     //public bool GrabPressed() => playerInput.Player.Interact.WasPerformedThisFrame();
     public bool JumpPressed() => playerInput.Player.Jump.WasPerformedThisFrame();

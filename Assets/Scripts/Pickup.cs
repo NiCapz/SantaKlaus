@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -6,8 +7,9 @@ public class Pickup : MonoBehaviour
 
     private Rigidbody physicsBody;
     private bool taken = false;
-    [SerializeField] Vector3 Offset = Vector3.zero;
+    [SerializeField] Vector3 offset = Vector3.zero;
     private GameObject attachPoint;
+    private Player playerObject;
 
     void Awake()
     {
@@ -20,15 +22,15 @@ public class Pickup : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"Local Position: {transform.localPosition}");
-        Debug.Log($"Global Position: {transform.position}");
         if (taken)
         {
+            //transform.localPosition = offset;
         }
     }
 
     public void Take(Player player)
     {
+        playerObject = player;
         //transform.localPosition += Offset;
         transform.SetParent(player.attachPoint.transform);
         attachPoint = player.attachPoint;
@@ -39,11 +41,11 @@ public class Pickup : MonoBehaviour
             physicsBody.isKinematic = true;
             physicsBody.detectCollisions = false;
         }
-        transform.localPosition = Offset;
+        transform.localPosition = offset;
         taken = true;
     }
 
-    public void Drop()
+    public void Drop(float thrustPower)
     {
         transform.SetParent(null);
         if (physicsBody != null)
@@ -51,7 +53,9 @@ public class Pickup : MonoBehaviour
             physicsBody.isKinematic = false;
             physicsBody.detectCollisions = true;
         }
-    }
+        taken = false;
 
+        physicsBody.AddForce(playerObject.transform.forward * thrustPower, ForceMode.Impulse);
+    }
 
 }

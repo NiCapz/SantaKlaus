@@ -1,4 +1,8 @@
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
+
+
 
 public class Player : MonoBehaviour
 {
@@ -13,11 +17,15 @@ public class Player : MonoBehaviour
     private CharacterController controller;
     private ParticleSystem pissSystem;
     public GameObject attachPoint;
+    private Stopwatch stopwatch;
 
     // Constants
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float lookSensitivity = 50f;
     [SerializeField] private float jumpHeight = .35f;
+    [SerializeField] private float grabRange = 2f;
+    [SerializeField] private float throwingPower = 1f;
+
 
     // state - stats
     private Vector3 velocity;
@@ -35,6 +43,9 @@ public class Player : MonoBehaviour
     private int invertControls = 1;
     private bool isGrounded;
 
+    // timer
+
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -50,6 +61,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        stopwatch = new Stopwatch();
         desiredSpeed = (float)TargetSpeed.WalkSpeed;
         currentSpeed = (float)TargetSpeed.WalkSpeed;
         pissSystem.Pause();
@@ -114,12 +126,9 @@ public class Player : MonoBehaviour
     // interaction functions
     public void SetGrabbingFalse()
     {
-        // called by the animator near the end of the grabbing animation
-        // emits raycast for item and reenables ability to grab
-        Debug.Log("grabbing false");
+        // called by the animator near the end of the grabbing animation, emits raycast for item and reenables ability to grab
         animator.SetBool("grabbing", false);
-
-        if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, 1.5f))
+        if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, grabRange))
         {
             heldItem = hit.collider.GetComponent<Pickup>();
             if (heldItem) heldItem.Take(this);
@@ -129,9 +138,17 @@ public class Player : MonoBehaviour
     {
         // Callback for the InputSystem, called if the interact button was pressd
         if (heldItem == null) animator.SetBool("grabbing", true);
-        else
+        else stopwatch.Start();
+    }
+    public void Release()
+    {
+        if (heldItem)
         {
-            heldItem.Drop();
+            float thrustPower = stopwatch.ElapsedMilliseconds / 100 * throwingPower;
+            Debug.Log(thrustPower);
+            stopwatch.Stop();
+            stopwatch.Reset();
+            heldItem.Drop(thrustPower);
             heldItem = null;
         }
     }
@@ -150,9 +167,7 @@ public class Player : MonoBehaviour
             pissing = false;
         }
     }
-    public void DisablePiss()
-    {
-    }
+
     public void ToggleFuckControls()
     {
         if (!fuckedControls)
