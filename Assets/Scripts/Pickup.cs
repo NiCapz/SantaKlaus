@@ -13,6 +13,7 @@ public class Pickup : MonoBehaviour
     private GameObject attachPoint;
     private Transform broken;
     public List<Transform> pieces = new List<Transform>();
+    private float requiredBreakageVelocity = 10f;
 
     void Awake()
     {
@@ -68,13 +69,13 @@ public class Pickup : MonoBehaviour
     public void Collide(float intensity)
     {
         Debug.Log($"{gameObject.name} collided with wall with an intensity of {intensity}");
-        if (intensity > 5)
+        if (intensity > requiredBreakageVelocity)
         {
             gameObject.SetActive(false);
+            Player.IncrementPresentCounter();
             foreach (Transform pieceTransform in pieces)
             {
                 pieceTransform.SetParent(null);
-                Debug.Log("bleh");
                 pieceTransform.gameObject.SetActive(true);
                 Rigidbody rb = pieceTransform.GetComponent<Rigidbody>();
                 rb.isKinematic = false;

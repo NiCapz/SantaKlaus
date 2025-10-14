@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -21,9 +22,6 @@ public class Player : MonoBehaviour
     public GameObject attachPoint;
     private Stopwatch stopwatch;
 
-    // External Components
-    private Counter gui;
-
     // Constants
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float lookSensitivity = 50f;
@@ -44,14 +42,14 @@ public class Player : MonoBehaviour
     private Pickup heldItem;
 
     // state - binary values
-    public bool pissing = false;
+    public bool pissing = true;
     private float cameraFlip = 0f;
     private bool fuckedControls = false;
     private int invertControls = 1;
     private bool isGrounded;
 
     // game stats
-    private int presentCounter = 0;
+    private static int presentCounter = 0;
 
     void Awake()
     {
@@ -64,7 +62,6 @@ public class Player : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         controller = GetComponent<CharacterController>();
         pissSystem = GetComponentInChildren<ParticleSystem>();
-        gui = FindFirstObjectByType<Counter>();
     }
 
     void Start()
@@ -72,7 +69,6 @@ public class Player : MonoBehaviour
         stopwatch = new Stopwatch();
         desiredSpeed = (float)TargetSpeed.WalkSpeed;
         currentSpeed = (float)TargetSpeed.WalkSpeed;
-        pissSystem.Pause();
     }
 
     void Update()
@@ -84,7 +80,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+
     }
 
     void Look()
@@ -191,9 +187,9 @@ public class Player : MonoBehaviour
             gravity = -9.81f;
         }
     }
-    public void IncrementPresentCounter()
+    public static void IncrementPresentCounter()
     {
         presentCounter++;
-        gui.UpdateCounter(presentCounter);
+        Counter.UpdateCounter(presentCounter);
     }
 }
