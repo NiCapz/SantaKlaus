@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
-using UnityEditor.Callbacks;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Pickup : MonoBehaviour
 {
@@ -13,7 +10,8 @@ public class Pickup : MonoBehaviour
     private GameObject attachPoint;
     private Transform broken;
     public List<Transform> pieces = new List<Transform>();
-    private float requiredBreakageVelocity = 10f;
+    private float requiredBreakageVelocity = 2f;
+
 
     void Awake()
     {
@@ -40,7 +38,6 @@ public class Pickup : MonoBehaviour
             }
         }
     }
-
 
     public void Take(Player player)
     {
@@ -80,8 +77,26 @@ public class Pickup : MonoBehaviour
                 Rigidbody rb = pieceTransform.GetComponent<Rigidbody>();
                 rb.isKinematic = false;
                 rb.detectCollisions = true;
+
+                TimerManager.StartTimer(2f, () => TimerRunout(pieces));
             }
         }
     }
+
+    static void TimerRunout(List<Transform> piecesToDestroy)
+    {
+        foreach (Transform piece in piecesToDestroy)
+        {
+            //piece.GetComponent<Rigidbody>().isKinematic = true;
+            //piece.GetComponent<Rigidbody>().detectCollisions = false;
+            var renderer = piece.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                renderer.receiveShadows = false;
+            }
+        }
+    }
+
 
 }

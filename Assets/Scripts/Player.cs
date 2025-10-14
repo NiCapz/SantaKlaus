@@ -1,9 +1,6 @@
 using System;
 using System.Diagnostics;
-using System.Threading;
-using TMPro;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 
 
@@ -76,11 +73,6 @@ public class Player : MonoBehaviour
         LerpSpeedToDesired();
         Look();
         Move();
-    }
-
-    void FixedUpdate()
-    {
-
     }
 
     void Look()
