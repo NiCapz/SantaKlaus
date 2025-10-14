@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using TMPro;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -19,6 +20,9 @@ public class Player : MonoBehaviour
     private ParticleSystem pissSystem;
     public GameObject attachPoint;
     private Stopwatch stopwatch;
+
+    // External Components
+    private Counter gui;
 
     // Constants
     [SerializeField] private float gravity = -9.81f;
@@ -60,6 +64,7 @@ public class Player : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         controller = GetComponent<CharacterController>();
         pissSystem = GetComponentInChildren<ParticleSystem>();
+        gui = FindFirstObjectByType<Counter>();
     }
 
     void Start()
@@ -75,6 +80,11 @@ public class Player : MonoBehaviour
         LerpSpeedToDesired();
         Look();
         Move();
+    }
+
+    void FixedUpdate()
+    {
+        
     }
 
     void Look()
@@ -100,20 +110,13 @@ public class Player : MonoBehaviour
     void Move()
     {
         isGrounded = controller.isGrounded;
-
-        //if (isGrounded) velocity.y = -2f;
-
         Vector2 twoDMoveDir = Input.Instance.Move;
         Vector3 moveDir = transform.right * twoDMoveDir.x + transform.forward * twoDMoveDir.y;
         moveDir = Vector3.ClampMagnitude(moveDir, 1f);
         moveDir *= invertControls;
-
-
         if (!isGrounded) velocity.y += gravity * Time.deltaTime;
-
         moveDir += velocity;
         controller.Move(moveDir * currentSpeed * Time.deltaTime);
-        //controller.Move(velocity * Time.deltaTime);
     }
 
     //movement functions
@@ -151,7 +154,6 @@ public class Player : MonoBehaviour
             Math.Clamp(thrustPower, 0, maxThrowCharge);
             heldItem.Drop(cameraPivot.transform.forward * thrustPower);
             heldItem = null;
-
             stopwatch.Stop();
             stopwatch.Reset();
         }
@@ -160,7 +162,6 @@ public class Player : MonoBehaviour
     // immersion methods
     public void TogglePiss()
     {
-        Debug.Log(presentCounter);
         if (!pissing)
         {
             pissSystem.Play();
@@ -193,5 +194,6 @@ public class Player : MonoBehaviour
     public void IncrementPresentCounter()
     {
         presentCounter++;
+        gui.UpdateCounter(presentCounter);
     }
 }
