@@ -110,9 +110,10 @@ public class Player : MonoBehaviour
         Vector3 moveDir = transform.right * twoDMoveDir.x + transform.forward * twoDMoveDir.y;
         moveDir = Vector3.ClampMagnitude(moveDir, 1f);
         moveDir *= invertControls;
+        moveDir *= currentSpeed;
         if (!isGrounded) velocity.y += gravity * Time.deltaTime;
         moveDir += velocity;
-        controller.Move(moveDir * currentSpeed * Time.deltaTime);
+        controller.Move(moveDir * Time.deltaTime);
     }
 
     //movement functions

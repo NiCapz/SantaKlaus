@@ -115842,7 +115842,7 @@ MonoBehaviour:
   attachPoint: {fileID: 4382463756603942740}
   gravity: -9.81
   lookSensitivity: 50
-  jumpHeight: 0.5
+  jumpHeight: 1
   grabRange: 2
   throwingPower: 1
   maxThrowCharge: 1000
