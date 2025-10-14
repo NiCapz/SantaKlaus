@@ -52,8 +52,12 @@ public class Pickup : MonoBehaviour
             physicsBody.detectCollisions = true;
         }
         taken = false;
-
         physicsBody.AddForce(direction, ForceMode.Impulse);
+    }
+
+    public void Collide(float intensity)
+    {
+        Debug.Log($"{gameObject.name} collided with wall with an intensity of {intensity}");
     }
 
 }
