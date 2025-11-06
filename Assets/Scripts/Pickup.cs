@@ -8,9 +8,7 @@ public class Pickup : MonoBehaviour
     [SerializeField] Vector3 offset = Vector3.zero;
     [SerializeField] private Rigidbody physicsBody;
     private GameObject attachPoint;
-    private Transform broken;
     public List<Transform> pieces = new List<Transform>();
-    private float requiredBreakageVelocity = 2f;
 
 
     void Awake()
@@ -20,23 +18,6 @@ public class Pickup : MonoBehaviour
 
         physicsBody.isKinematic = false;
         physicsBody.detectCollisions = true;
-
-        if (broken = transform.Find("broken"))
-        {
-            pieces = broken.GetComponentsInChildren<Transform>()
-                           .Where(t => t != broken)
-                           .ToList();
-
-            foreach (Transform pieceTransform in pieces)
-            {
-                if (pieceTransform.TryGetComponent<Rigidbody>(out Rigidbody rb))
-                {
-                    pieceTransform.gameObject.SetActive(false);
-                    rb.isKinematic = true;
-                    rb.detectCollisions = false;
-                }
-            }
-        }
     }
 
     public void Take(Player player)
@@ -62,41 +43,4 @@ public class Pickup : MonoBehaviour
         }
         physicsBody.AddForce(direction, ForceMode.Impulse);
     }
-
-    public void Collide(float intensity)
-    {
-        Debug.Log($"{gameObject.name} collided with wall with an intensity of {intensity}");
-        if (intensity > requiredBreakageVelocity)
-        {
-            gameObject.SetActive(false);
-            Player.IncrementPresentCounter();
-            foreach (Transform pieceTransform in pieces)
-            {
-                pieceTransform.SetParent(null);
-                pieceTransform.gameObject.SetActive(true);
-                Rigidbody rb = pieceTransform.GetComponent<Rigidbody>();
-                rb.isKinematic = false;
-                rb.detectCollisions = true;
-
-                TimerManager.StartTimer(2f, () => TimerRunout(pieces));
-            }
-        }
-    }
-
-    static void TimerRunout(List<Transform> piecesToDestroy)
-    {
-        foreach (Transform piece in piecesToDestroy)
-        {
-            //piece.GetComponent<Rigidbody>().isKinematic = true;
-            //piece.GetComponent<Rigidbody>().detectCollisions = false;
-            var renderer = piece.GetComponent<Renderer>();
-            if (renderer != null)
-            {
-                renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-                renderer.receiveShadows = false;
-            }
-        }
-    }
-
-
 }
