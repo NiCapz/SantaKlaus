@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Counter : MonoBehaviour
 {
-    private static TextMeshProUGUI gui;
+    public static TextMeshProUGUI gui;
 
     void Awake()
     {
@@ -13,6 +13,6 @@ public class Counter : MonoBehaviour
 
     public static void UpdateCounter(int count)
     {
-        gui.SetText($"Presents destroyed: {count}");
+        gui.SetText($"Presents destroyed: {count} / 11");
     }
 }

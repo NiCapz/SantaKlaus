@@ -3,7 +3,12 @@ using UnityEngine;
 public class Arms : MonoBehaviour
 {
 
-    [SerializeField] Player player;
+    Player player;
+
+    void Awake()
+    {
+        player = Player.Instance;
+    }
 
     public void GrabOver()
     {

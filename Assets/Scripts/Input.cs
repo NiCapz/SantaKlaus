@@ -1,3 +1,5 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +12,7 @@ public class Input : MonoBehaviour
     public Vector2 Look;
     public bool sprintPressed = false;
     [SerializeField] private Player player;
+    [SerializeField] private Countdown countdown;
 
     void Awake()
     {
@@ -41,6 +44,13 @@ public class Input : MonoBehaviour
         playerInput.Player.Sprint.performed += OnSprintPressed;
         playerInput.Player.Sprint.canceled += OnSprintReleased;
 
+        playerInput.Player.Countdown.performed += StartCountDown;
+
+    }
+
+    private void StartCountDown(InputAction.CallbackContext context)
+    {
+        countdown.InitiateCountdown();
     }
 
     private void OnSprintPressed(InputAction.CallbackContext context)

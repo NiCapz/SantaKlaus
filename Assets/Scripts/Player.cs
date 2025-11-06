@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float lookSensitivity = 50f;
     [SerializeField] private float jumpHeight = .35f;
-    [SerializeField] private float grabRange = 2f;
+    [SerializeField] private float grabRange = 5f;
     [SerializeField] private float throwingPower = 1f;
     [SerializeField] private float maxThrowCharge = 1000f;
 
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
     private bool isGrounded;
 
     // game stats
-    private static int presentCounter = 0;
+    public static int presentCounter = 0;
 
     void Awake()
     {
