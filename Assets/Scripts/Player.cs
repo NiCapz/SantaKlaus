@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float lookSensitivity = 50f;
     [SerializeField] private float jumpHeight = .35f;
     [SerializeField] private float grabRange = 5f;
+    [SerializeField] private float interactRange = 10f;
     [SerializeField] private float throwingPower = 1f;
     [SerializeField] private float maxThrowCharge = 1000f;
 
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
 
     // game stats
     public static int presentCounter = 0;
+    public static bool turkeyOnTree = false;
 
     void Awake()
     {
@@ -134,9 +136,23 @@ public class Player : MonoBehaviour
     public void TryGrab()
     {
         // Callback for the InputSystem, called if the interact button was pressd
-        if (heldItem == null) animator.SetBool("grabbing", true);
-        else stopwatch.Start();
+        if (heldItem == null)
+        {
+            animator.SetBool("grabbing", true);
+            return;
+        }
+        else if (heldItem.GetComponent<Breakable>()) stopwatch.Start();
+        else if (heldItem.GetComponent<Interactable>())
+        {
+            Interactable interactable = heldItem.GetComponent<Interactable>();
+
+            if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, interactRange))
+            {
+                interactable.TryInteract(hit);
+            }
+        }
     }
+
     public void Release()
     {
         if (heldItem)

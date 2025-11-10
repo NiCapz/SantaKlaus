@@ -6,10 +6,10 @@ public class Counter : MonoBehaviour
 {
     public static TextMeshProUGUI gui;
 
-    void Awake()
+    void Start()
     {
-        gui = GetComponent<TextMeshProUGUI>();
-    }
+        gui = GameObject.Find("Counter").GetComponent<TextMeshProUGUI>();
+    }   
 
     public static void UpdateCounter(int count)
     {
