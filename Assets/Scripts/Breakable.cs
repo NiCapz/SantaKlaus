@@ -34,8 +34,24 @@ public class Breakable : MonoBehaviour
     public void Explode()
     {
         //Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-        gameObject.SetActive(false);
-        
+        //gameObject.SetActive(false);
+        /*
+        foreach(Transform child in GetComponentInChildren<Transform>())
+        {
+            child.SetParent(null);
+            child.gameObject.SetActive(true);
+        } */
+
+        GetComponent<BoxCollider>().enabled = false;
+        foreach (MeshRenderer ren in transform.Find("MicroWaveVisual").GetComponentsInChildren<MeshRenderer>())
+        {
+            ren.enabled = false;
+        }
+        foreach (SkinnedMeshRenderer ren in transform.Find("MicroWaveVisual").GetComponentsInChildren<SkinnedMeshRenderer>())
+        {
+            ren.enabled = false;
+        }
+
         Rigidbody rb;
         foreach (Transform piece in pieces)
         {
@@ -46,7 +62,6 @@ public class Breakable : MonoBehaviour
                 rb.isKinematic = false;
                 rb.detectCollisions = true;
                 rb.AddExplosionForce(explosionforce, transform.position, explosionRadius);
-                Debug.Log("try explode??");
             }
         }
     }

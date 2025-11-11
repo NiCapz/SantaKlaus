@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     // game stats
     public static int presentCounter = 0;
     public static bool turkeyOnTree = false;
+    public static bool microwaveExploded = false;
 
     void Awake()
     {
