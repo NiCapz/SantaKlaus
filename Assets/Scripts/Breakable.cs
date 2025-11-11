@@ -8,6 +8,8 @@ public class Breakable : MonoBehaviour
     private Transform broken;
     public List<Transform> pieces = new List<Transform>();
     private float requiredBreakageVelocity = 5f;
+    private float explosionforce = .5f;
+    private float explosionRadius = 1f;
 
     void Awake()
     {
@@ -25,6 +27,26 @@ public class Breakable : MonoBehaviour
                     rb.isKinematic = true;
                     rb.detectCollisions = false;
                 }
+            }
+        }
+    }
+
+    public void Explode()
+    {
+        //Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        gameObject.SetActive(false);
+        
+        Rigidbody rb;
+        foreach (Transform piece in pieces)
+        {
+            if (rb = piece.GetComponent<Rigidbody>())
+            {
+                piece.transform.SetParent(null);
+                piece.gameObject.SetActive(true);
+                rb.isKinematic = false;
+                rb.detectCollisions = true;
+                rb.AddExplosionForce(explosionforce, transform.position, explosionRadius);
+                Debug.Log("try explode??");
             }
         }
     }

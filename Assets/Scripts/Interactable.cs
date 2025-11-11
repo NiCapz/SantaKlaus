@@ -5,10 +5,13 @@ public class Interactable : MonoBehaviour
     [SerializeField] Transform interactionPartner;
     Transform attachPoint;
     [SerializeField] bool turkeyOnChristmasTree;
+    [SerializeField] bool wineBottle;
+    Rigidbody rb;
 
     void Awake()
     {
         attachPoint = interactionPartner.Find("AttachPoint");
+        rb = GetComponent<Rigidbody>();
     }
 
     public bool TryInteract(RaycastHit hit)
@@ -16,12 +19,23 @@ public class Interactable : MonoBehaviour
 
         if (hit.transform == interactionPartner)
         {
+            rb.isKinematic = true;
+            transform.localEulerAngles = Vector3.zero;
+            transform.localPosition = Vector3.zero;
+            transform.position = attachPoint.position;
+            
             if (turkeyOnChristmasTree)
             {
-                transform.localEulerAngles = Vector3.zero;
-                transform.localPosition = Vector3.zero;
-                transform.position = attachPoint.position;
                 Player.turkeyOnTree = true;
+            }
+            if (wineBottle)
+            {
+                transform.localEulerAngles = new Vector3(0, 0, 90);
+                TimerManager.StartTimer(2f, () =>
+                {
+                    Breakable br = interactionPartner.GetComponent<Breakable>();
+                    br.Explode();
+                });
             }
         }
 
