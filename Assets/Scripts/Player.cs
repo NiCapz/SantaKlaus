@@ -1,8 +1,6 @@
 using System;
 using System.Diagnostics;
-using Unity.VisualScripting;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 
 
@@ -131,7 +129,10 @@ public class Player : MonoBehaviour
         if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, grabRange))
         {
             heldItem = hit.collider.GetComponent<Pickup>();
-            if (heldItem) heldItem.Take(this);
+            Interactable interactable = hit.collider.GetComponent<Interactable>();
+
+            if (heldItem)heldItem.Take();
+            if (!heldItem && interactable) interactable.TryMicrowaveInteract();
         }
     }
     public void TryGrab()

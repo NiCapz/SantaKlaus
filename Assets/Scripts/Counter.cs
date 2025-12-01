@@ -9,10 +9,11 @@ public class Counter : MonoBehaviour
     void Start()
     {
         gui = GameObject.Find("Counter").GetComponent<TextMeshProUGUI>();
-    }   
+    }
 
     public static void UpdateCounter(int count)
     {
-        gui.SetText($"Presents destroyed: {count} / 11");
+        if (gui) gui.SetText($"Presents destroyed: {count} / 11");
+        else Debug.Log("No gui object present");
     }
 }

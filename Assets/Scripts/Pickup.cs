@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Pickup : MonoBehaviour
@@ -8,7 +6,6 @@ public class Pickup : MonoBehaviour
     [SerializeField] Vector3 offset = Vector3.zero;
     [SerializeField] private Rigidbody physicsBody;
     private GameObject attachPoint;
-    public List<Transform> pieces = new List<Transform>();
 
 
     void Awake()
@@ -20,10 +17,11 @@ public class Pickup : MonoBehaviour
         physicsBody.detectCollisions = true;
     }
 
-    public void Take(Player player)
+    public void Take()
     {
-        transform.SetParent(player.attachPoint.transform);
-        attachPoint = player.attachPoint;
+
+        transform.SetParent(Player.Instance.attachPoint.transform);
+        attachPoint = Player.Instance.attachPoint;
         transform.localPosition = Vector3.zero;
         if (physicsBody != null)
         {

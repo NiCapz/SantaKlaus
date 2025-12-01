@@ -7,7 +7,7 @@ public class Arms : MonoBehaviour
 
     void Awake()
     {
-        player = Player.Instance;
+        player = FindFirstObjectByType<Player>();
     }
 
     public void GrabOver()

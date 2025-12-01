@@ -8,7 +8,7 @@ public class Breakable : MonoBehaviour
     private Transform broken;
     public List<Transform> pieces = new List<Transform>();
     private float requiredBreakageVelocity = 5f;
-    private float explosionforce = .5f;
+    private float explosionforce = 1f;
     private float explosionRadius = 1f;
 
     void Awake()
@@ -40,6 +40,7 @@ public class Breakable : MonoBehaviour
         {
             child.SetParent(null);
             child.gameObject.SetActive(true);
+            
         } */
 
         GetComponent<BoxCollider>().enabled = false;
@@ -57,6 +58,7 @@ public class Breakable : MonoBehaviour
         {
             if (rb = piece.GetComponent<Rigidbody>())
             {
+                piece.GetComponent<MeshRenderer>().enabled = true;
                 piece.transform.SetParent(null);
                 piece.gameObject.SetActive(true);
                 rb.isKinematic = false;
