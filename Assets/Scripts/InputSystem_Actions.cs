@@ -199,6 +199,24 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""37e51332-d0eb-4f09-981c-642c1cca95b7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""62581a08-b105-45b6-a8fc-a99ddbe9c461"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -584,6 +602,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Bat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b99825ed-f69a-455b-a058-3ddb30774a4a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e80bc9c3-0b59-4255-85f4-01cf965b1a75"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1183,6 +1223,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Countdown = m_Player.FindAction("Countdown", throwIfNotFound: true);
         m_Player_MiddleFinger = m_Player.FindAction("MiddleFinger", throwIfNotFound: true);
         m_Player_Bat = m_Player.FindAction("Bat", throwIfNotFound: true);
+        m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
+        m_Player_Restart = m_Player.FindAction("Restart", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1288,6 +1330,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Countdown;
     private readonly InputAction m_Player_MiddleFinger;
     private readonly InputAction m_Player_Bat;
+    private readonly InputAction m_Player_Escape;
+    private readonly InputAction m_Player_Restart;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1347,6 +1391,14 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Bat".
         /// </summary>
         public InputAction @Bat => m_Wrapper.m_Player_Bat;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Escape".
+        /// </summary>
+        public InputAction @Escape => m_Wrapper.m_Player_Escape;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Restart".
+        /// </summary>
+        public InputAction @Restart => m_Wrapper.m_Player_Restart;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1409,6 +1461,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Bat.started += instance.OnBat;
             @Bat.performed += instance.OnBat;
             @Bat.canceled += instance.OnBat;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
+            @Restart.started += instance.OnRestart;
+            @Restart.performed += instance.OnRestart;
+            @Restart.canceled += instance.OnRestart;
         }
 
         /// <summary>
@@ -1456,6 +1514,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Bat.started -= instance.OnBat;
             @Bat.performed -= instance.OnBat;
             @Bat.canceled -= instance.OnBat;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
+            @Restart.started -= instance.OnRestart;
+            @Restart.performed -= instance.OnRestart;
+            @Restart.canceled -= instance.OnRestart;
         }
 
         /// <summary>
@@ -1840,6 +1904,20 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnBat(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEscape(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Restart" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRestart(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

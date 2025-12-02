@@ -14,7 +14,7 @@ public class TimerManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     public static void StartTimer(float duration, Action callback)
@@ -23,7 +23,7 @@ public class TimerManager : MonoBehaviour
         {
             GameObject go = new GameObject("TimerManager");
             Instance = go.AddComponent<TimerManager>();
-            DontDestroyOnLoad(go);
+            //DontDestroyOnLoad(go);
         }
         Instance.StartCoroutine(Instance.TimerCoroutine(duration, callback));
     }

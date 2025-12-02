@@ -1,5 +1,3 @@
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -48,12 +46,22 @@ public class Input : MonoBehaviour
 
         playerInput.Player.Countdown.performed += StartCountDown;
 
-        playerInput.Player.MiddleFinger.performed += MiddleFinger; 
+        playerInput.Player.MiddleFinger.performed += MiddleFinger;
 
-
+        playerInput.Player.Escape.performed += Escape;
+        playerInput.Player.Restart.performed += Restart;
 
     }
 
+
+    private void Escape(InputAction.CallbackContext context)
+    {
+        player.Quit();
+    }
+    private void Restart(InputAction.CallbackContext context)
+    {
+        player.Restart();
+    }
     private void OnBatPressed(InputAction.CallbackContext context)
     {
         player.ToggleBat();

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 
 
@@ -59,6 +60,20 @@ public class Player : MonoBehaviour
     public static bool turkeyOnTree = false;
     public static bool microwaveExploded = false;
 
+
+    public void Quit()
+    {
+        UnityEngine.Debug.Log("quitting?");
+        Application.Quit();
+    }
+
+    public void Restart()
+    {
+        UnityEngine.Debug.Log("restarting?");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+    }
+
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -67,7 +82,7 @@ public class Player : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         controller = GetComponent<CharacterController>();
         pissSystem = GetComponentInChildren<ParticleSystem>();
     }
@@ -152,8 +167,7 @@ public class Player : MonoBehaviour
 
     public void MiddleFingerPressed()
     {
-        armsAnimator.SetTrigger("middlefinger");
-        UnityEngine.Debug.Log("middleFinger?");
+        if (!holdsBat) armsAnimator.SetTrigger("middlefinger");
     }
 
 
