@@ -43,9 +43,26 @@ public class Input : MonoBehaviour
 
         playerInput.Player.Sprint.performed += OnSprintPressed;
         playerInput.Player.Sprint.canceled += OnSprintReleased;
+        
+        playerInput.Player.Bat.performed += OnBatPressed;
 
         playerInput.Player.Countdown.performed += StartCountDown;
 
+        playerInput.Player.MiddleFinger.performed += MiddleFinger; 
+
+
+
+    }
+
+    private void OnBatPressed(InputAction.CallbackContext context)
+    {
+        player.ToggleBat();
+        Debug.Log("toggling bat ig");
+    }
+
+    private void MiddleFinger(InputAction.CallbackContext context)
+    {
+        player.MiddleFingerPressed();
     }
 
     private void StartCountDown(InputAction.CallbackContext context)

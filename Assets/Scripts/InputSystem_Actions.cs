@@ -181,6 +181,24 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MiddleFinger"",
+                    ""type"": ""Button"",
+                    ""id"": ""058c4fad-fa57-497b-ba60-afacb3af762e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Bat"",
+                    ""type"": ""Button"",
+                    ""id"": ""9fa6c76a-be7b-4b26-be79-82b7a8c14f4c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -544,6 +562,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Countdown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba4191d7-d582-48dd-9088-269b02387a7b"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MiddleFinger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27c5c735-cb1b-4401-8049-0e3c5ac2be3b"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1141,6 +1181,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Piss = m_Player.FindAction("Piss", throwIfNotFound: true);
         m_Player_Countdown = m_Player.FindAction("Countdown", throwIfNotFound: true);
+        m_Player_MiddleFinger = m_Player.FindAction("MiddleFinger", throwIfNotFound: true);
+        m_Player_Bat = m_Player.FindAction("Bat", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1244,6 +1286,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Piss;
     private readonly InputAction m_Player_Countdown;
+    private readonly InputAction m_Player_MiddleFinger;
+    private readonly InputAction m_Player_Bat;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1295,6 +1339,14 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Countdown".
         /// </summary>
         public InputAction @Countdown => m_Wrapper.m_Player_Countdown;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/MiddleFinger".
+        /// </summary>
+        public InputAction @MiddleFinger => m_Wrapper.m_Player_MiddleFinger;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Bat".
+        /// </summary>
+        public InputAction @Bat => m_Wrapper.m_Player_Bat;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1351,6 +1403,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Countdown.started += instance.OnCountdown;
             @Countdown.performed += instance.OnCountdown;
             @Countdown.canceled += instance.OnCountdown;
+            @MiddleFinger.started += instance.OnMiddleFinger;
+            @MiddleFinger.performed += instance.OnMiddleFinger;
+            @MiddleFinger.canceled += instance.OnMiddleFinger;
+            @Bat.started += instance.OnBat;
+            @Bat.performed += instance.OnBat;
+            @Bat.canceled += instance.OnBat;
         }
 
         /// <summary>
@@ -1392,6 +1450,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Countdown.started -= instance.OnCountdown;
             @Countdown.performed -= instance.OnCountdown;
             @Countdown.canceled -= instance.OnCountdown;
+            @MiddleFinger.started -= instance.OnMiddleFinger;
+            @MiddleFinger.performed -= instance.OnMiddleFinger;
+            @MiddleFinger.canceled -= instance.OnMiddleFinger;
+            @Bat.started -= instance.OnBat;
+            @Bat.performed -= instance.OnBat;
+            @Bat.canceled -= instance.OnBat;
         }
 
         /// <summary>
@@ -1762,6 +1826,20 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCountdown(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MiddleFinger" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMiddleFinger(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Bat" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBat(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

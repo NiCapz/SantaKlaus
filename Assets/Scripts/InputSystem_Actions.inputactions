@@ -95,6 +95,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MiddleFinger",
+                    "type": "Button",
+                    "id": "058c4fad-fa57-497b-ba60-afacb3af762e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Bat",
+                    "type": "Button",
+                    "id": "9fa6c76a-be7b-4b26-be79-82b7a8c14f4c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -458,6 +476,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Countdown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba4191d7-d582-48dd-9088-269b02387a7b",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MiddleFinger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "27c5c735-cb1b-4401-8049-0e3c5ac2be3b",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

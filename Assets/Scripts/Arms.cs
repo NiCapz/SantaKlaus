@@ -13,6 +13,17 @@ public class Arms : MonoBehaviour
     public void GrabOver()
     {
         player.SetGrabbingFalse();
+        Debug.Log("grab hit method");
+    }
+
+    public void Test()
+    {
+        Debug.Log("test");
+    }
+
+    public void BatHitTime()
+    {
+        player.CheckForBatHit();
     }
 
 

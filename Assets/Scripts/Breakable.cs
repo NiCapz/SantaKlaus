@@ -10,6 +10,7 @@ public class Breakable : MonoBehaviour
     private float requiredBreakageVelocity = 5f;
     private float explosionforce = 1f;
     private float explosionRadius = 1f;
+    [SerializeField] private int hp;
 
     void Awake()
     {
@@ -29,6 +30,12 @@ public class Breakable : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void HitWithBat()
+    {
+        hp -= 1;
+        if (hp <= 0) Break();
     }
 
     public void Explode()
@@ -68,23 +75,28 @@ public class Breakable : MonoBehaviour
         }
     }
 
+    private void Break()
+    {
+        gameObject.SetActive(false);
+        Player.IncrementPresentCounter();
+        foreach (Transform pieceTransform in pieces)
+        {
+            pieceTransform.SetParent(null);
+            pieceTransform.gameObject.SetActive(true);
+            Rigidbody rb = pieceTransform.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+            rb.detectCollisions = true;
+
+            TimerManager.StartTimer(2f, () => TimerRunout(pieces));
+        }
+    }
+
     public void Collide(float intensity)
     {
         //Debug.Log($"{gameObject.name} collided with wall with an intensity of {intensity}");
         if (intensity > requiredBreakageVelocity)
         {
-            gameObject.SetActive(false);
-            Player.IncrementPresentCounter();
-            foreach (Transform pieceTransform in pieces)
-            {
-                pieceTransform.SetParent(null);
-                pieceTransform.gameObject.SetActive(true);
-                Rigidbody rb = pieceTransform.GetComponent<Rigidbody>();
-                rb.isKinematic = false;
-                rb.detectCollisions = true;
-
-                TimerManager.StartTimer(2f, () => TimerRunout(pieces));
-            }
+            Break();
         }
     }
 

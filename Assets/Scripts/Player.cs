@@ -1,6 +1,8 @@
 using System;
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 
@@ -11,13 +13,17 @@ public class Player : MonoBehaviour
     public enum TargetSpeed { SprintSpeed = 10, WalkSpeed = 5, CrouchSpeed = 2 }
 
     // Components
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator armsAnimator;
+    [SerializeField] private Animator armsWithBatAnimator;
     [SerializeField] private Input input;
     [SerializeField] private Transform cameraPivot;
     private CharacterController controller;
     private ParticleSystem pissSystem;
     public GameObject attachPoint;
     private Stopwatch stopwatch;
+    [SerializeField] private GameObject arms;
+    [SerializeField] private GameObject armsWithBat;
+
 
     // Constants
     [SerializeField] private float gravity = -9.81f;
@@ -45,6 +51,8 @@ public class Player : MonoBehaviour
     private bool fuckedControls = false;
     private int invertControls = 1;
     private bool isGrounded;
+    private bool hasBat = true;
+    private bool holdsBat = false;
 
     // game stats
     public static int presentCounter = 0;
@@ -69,6 +77,8 @@ public class Player : MonoBehaviour
         stopwatch = new Stopwatch();
         desiredSpeed = (float)TargetSpeed.WalkSpeed;
         currentSpeed = (float)TargetSpeed.WalkSpeed;
+
+        armsWithBat.SetActive(false);
     }
 
     void Update()
@@ -121,37 +131,82 @@ public class Player : MonoBehaviour
         if (currentSpeed != desiredSpeed) currentSpeed = Mathf.Lerp(currentSpeed, desiredSpeed, 0.5f);
     }
 
+
+    public void ToggleBat()
+    {
+        if (hasBat)
+        {
+            if (holdsBat)
+            {
+                arms.SetActive(true);
+                armsWithBat.SetActive(false);
+            }
+            else
+            {
+                arms.SetActive(false);
+                armsWithBat.SetActive(true);
+            }
+            holdsBat = !holdsBat;
+        }
+    }
+
+    public void MiddleFingerPressed()
+    {
+        armsAnimator.SetTrigger("middlefinger");
+        UnityEngine.Debug.Log("middleFinger?");
+    }
+
+
     // interaction functions
     public void SetGrabbingFalse()
     {
-        // called by the animator near the end of the grabbing animation, emits raycast for item and reenables ability to grab
-        animator.SetBool("grabbing", false);
-        if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, grabRange))
+        if (!holdsBat)
         {
-            heldItem = hit.collider.GetComponent<Pickup>();
-            Interactable interactable = hit.collider.GetComponent<Interactable>();
+            // called by the animator near the end of the grabbing animation, emits raycast for item and reenables ability to grab
+            armsAnimator.SetBool("grabbing", false);
+            if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, grabRange))
+            {
+                heldItem = hit.collider.GetComponent<Pickup>();
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
 
-            if (heldItem)heldItem.Take();
-            if (!heldItem && interactable) interactable.TryMicrowaveInteract();
+                if (heldItem) heldItem.Take();
+                if (!heldItem && interactable) interactable.TryMicrowaveInteract();
+            }
         }
     }
     public void TryGrab()
     {
-        // Callback for the InputSystem, called if the interact button was pressd
-        if (heldItem == null)
+        if (!holdsBat)
         {
-            animator.SetBool("grabbing", true);
-            return;
-        }
-        else if (heldItem.GetComponent<Breakable>()) stopwatch.Start();
-        else if (heldItem.GetComponent<Interactable>())
-        {
-            Interactable interactable = heldItem.GetComponent<Interactable>();
-
-            if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, interactRange))
+            // Callback for the InputSystem, called if the interact button was pressd
+            if (heldItem == null)
             {
-                interactable.TryInteract(hit);
+                armsAnimator.SetBool("grabbing", true);
+                return;
             }
+            else if (heldItem.GetComponent<Breakable>()) stopwatch.Start();
+            else if (heldItem.GetComponent<Interactable>())
+            {
+                Interactable interactable = heldItem.GetComponent<Interactable>();
+
+                if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, interactRange))
+                {
+                    interactable.TryInteract(hit);
+                }
+            }
+        }
+        else
+        {
+            armsWithBatAnimator.SetTrigger("hit");
+        }
+    }
+
+    public void CheckForBatHit()
+    {
+        if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, 3f))
+        {
+            Breakable breakable = hit.collider.gameObject.GetComponent<Breakable>();
+            if (breakable != null) breakable.HitWithBat();
         }
     }
 

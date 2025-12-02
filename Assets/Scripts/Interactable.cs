@@ -10,16 +10,20 @@ public class Interactable : MonoBehaviour
     [SerializeField] bool microWave;
     private Rigidbody rb;
 
+    private AudioSource[] audioSources;
+    
+
     void Awake()
     {
         if (interactionPartner) attachPoint = interactionPartner.Find("AttachPoint");
         rb = GetComponent<Rigidbody>();
+        if (wineBottle || turkey) audioSources = interactionPartner.gameObject.GetComponentsInChildren<AudioSource>();
     }
-
 
 
     public bool TryInteract(RaycastHit hit)
     {
+        Debug.Log(gameObject.name + "tried to interact");
         if (hit.transform == interactionPartner)
         {
             transform.SetParent(interactionPartner);
@@ -36,29 +40,35 @@ public class Interactable : MonoBehaviour
             {
                 Debug.Log("no pickup found");
             }
-            
+
             if (turkey)
             {
+                audioSources[0].Play();
                 Player.turkeyOnTree = true;
                 transform.localEulerAngles = new Vector3(0, 90, 180);
             }
             if (wineBottle)
             {
                 var microWave = interactionPartner.GetComponent<Microwave>();
+
                 microWave.ToggleOpen();
-                Destroy(microWave);
 
                 transform.localEulerAngles = new Vector3(0, 0, 90);
                 gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
-                TimerManager.StartTimer(2f, () =>
+                //AudioSource[] audioSources = interactionPartner.gameObject.GetComponentsInChildren<AudioSource>();
+                //audioSources[0].gameObject.SetActive(true);
+                // audioSources[1].gameObject.SetActive(true);
+                audioSources[0].Play();
+
+                TimerManager.StartTimer(5f, () =>
                 {
-                    Transform audio = interactionPartner.Find("AudioSource");
-                    audio.gameObject.SetActive(true);
-                    audio.GetComponent<AudioSource>().Play();
+                    audioSources[0].Stop();
+                    audioSources[1].Play();
                     Breakable br = interactionPartner.GetComponent<Breakable>();
                     br.Explode();
                 });
                 Player.microwaveExploded = true;
+
             }
             Destroy(this);
         }
