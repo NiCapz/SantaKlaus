@@ -45,6 +45,7 @@ public class Interactable : MonoBehaviour
                 audioSources[0].Play();
                 Player.turkeyOnTree = true;
                 transform.localEulerAngles = new Vector3(0, 90, 180);
+                transform.localPosition += new Vector3(0, 0.0033f, 0);
             }
             if (wineBottle)
             {
