@@ -217,10 +217,16 @@ public class Player : MonoBehaviour
 
     public void CheckForBatHit()
     {
-        if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, 3f))
+        
+        //if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, 3f))
+        RaycastHit[] hits;
+        hits = Physics.SphereCastAll(cameraPivot.position, 1f, cameraPivot.TransformDirection(Vector3.forward), 1.5f);
+
+        foreach(RaycastHit hit in hits)
         {
             Breakable breakable = hit.collider.gameObject.GetComponent<Breakable>();
             if (breakable != null) breakable.HitWithBat();
+            else UnityEngine.Debug.Log($"tried to hit {hit.collider.name}, but no breakable");
         }
     }
 

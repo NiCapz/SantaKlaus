@@ -33,8 +33,8 @@ Transform:
   m_LocalScale: {x: 1.4009651, y: 0.86048937, z: 1.2695999}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4164134356632202149}
   - {fileID: 5297322939615439194}
+  - {fileID: 4164134356632202149}
   - {fileID: 3591436845588622355}
   - {fileID: 2101076245094124980}
   - {fileID: 5816496110403499803}
@@ -118,6 +118,7 @@ MonoBehaviour:
   - {fileID: 4396909136562607738}
   - {fileID: 6864521517892121096}
   hp: 0
+  present: 0
 --- !u!65 &3164960838203362197
 BoxCollider:
   m_ObjectHideFlags: 0

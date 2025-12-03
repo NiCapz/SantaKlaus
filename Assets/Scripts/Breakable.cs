@@ -11,14 +11,13 @@ public class Breakable : MonoBehaviour
     private float explosionforce = 1f;
     private float explosionRadius = 1f;
     [SerializeField] private int hp;
+    [SerializeField] bool present;
 
     void Awake()
     {
-        if (broken = transform.Find("broken"))
+        if (broken = transform.GetChild(0))
         {
-            pieces = broken.GetComponentsInChildren<Transform>()
-                           .Where(t => t != broken)
-                           .ToList();
+            pieces = broken.GetComponentsInChildren<Transform>().Where(t => t != broken).ToList();
 
             foreach (Transform pieceTransform in pieces)
             {
@@ -35,6 +34,7 @@ public class Breakable : MonoBehaviour
     public void HitWithBat()
     {
         hp -= 1;
+        Debug.Log($"hit {gameObject.name}, {hp} remaining");
         if (hp <= 0) Break();
     }
 
