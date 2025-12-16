@@ -1,9 +1,8 @@
 using System;
 using System.Diagnostics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 
@@ -24,6 +23,8 @@ public class Player : MonoBehaviour
     private Stopwatch stopwatch;
     [SerializeField] private GameObject arms;
     [SerializeField] private GameObject armsWithBat;
+    [SerializeField] private RawImage crossHairHighlight;
+
 
 
     // Constants
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float lookSensitivity = 50f;
     [SerializeField] private float jumpHeight = .35f;
     [SerializeField] private float grabRange = 5f;
-    [SerializeField] private float interactRange = 10f;
+    [SerializeField] private float interactRange = 5f;
     [SerializeField] private float throwingPower = 1f;
     [SerializeField] private float maxThrowCharge = 1000f;
 
@@ -54,9 +55,12 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     private bool hasBat = true;
     private bool holdsBat = false;
+    private bool lookingAtSomething = false;
 
     // game stats
     public static int presentCounter = 0;
+    public static int interactionCounter = 0;
+    public static int smashCounter = 0;
     public static bool turkeyOnTree = false;
     public static bool microwaveExploded = false;
 
@@ -101,6 +105,23 @@ public class Player : MonoBehaviour
         LerpSpeedToDesired();
         Look();
         Move();
+        CheckForLookingAtSomething();
+    }
+
+    private void CheckForLookingAtSomething()
+    {
+        if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, grabRange))
+        {
+            lookingAtSomething = hit.collider.GetComponentInChildren<Pickup>()
+            || hit.collider.GetComponentInChildren<Interactable>()
+            || hit.collider.GetComponentInChildren<Breakable>();
+            //UnityEngine.Debug.Log($"looking at something: {lookingAtSomething}, {hit.collider.name}");
+        }
+        else lookingAtSomething = false;
+
+        if (lookingAtSomething && !crossHairHighlight.enabled) crossHairHighlight.enabled = true;
+        else if (!lookingAtSomething && crossHairHighlight.enabled) crossHairHighlight.enabled = false;
+
     }
 
     void Look()
@@ -190,15 +211,15 @@ public class Player : MonoBehaviour
     }
     public void TryGrab()
     {
-        if (!holdsBat)
+        if (!holdsBat && lookingAtSomething)
         {
             // Callback for the InputSystem, called if the interact button was pressd
             if (heldItem == null)
             {
+                UnityEngine.Debug.Log("helditem is null");
                 armsAnimator.SetBool("grabbing", true);
                 return;
             }
-            else if (heldItem.GetComponent<Breakable>()) stopwatch.Start();
             else if (heldItem.GetComponent<Interactable>())
             {
                 Interactable interactable = heldItem.GetComponent<Interactable>();
@@ -207,34 +228,46 @@ public class Player : MonoBehaviour
                 {
                     interactable.TryInteract(hit);
                 }
+                UnityEngine.Debug.Log("helditem is interactable");
+                return;
             }
+        }
+        else if (heldItem)
+        {
+            stopwatch.Start();
+            UnityEngine.Debug.Log("starting stopwatch");
+            return;
         }
         else
         {
+            UnityEngine.Debug.Log("hitting");
             armsWithBatAnimator.SetTrigger("hit");
         }
     }
 
     public void CheckForBatHit()
     {
-        
+
         //if (Physics.Raycast(cameraPivot.position, cameraPivot.TransformDirection(Vector3.forward), out RaycastHit hit, 3f))
         RaycastHit[] hits;
-        hits = Physics.SphereCastAll(cameraPivot.position, 1f, cameraPivot.TransformDirection(Vector3.forward), 1.5f);
+        hits = Physics.SphereCastAll(cameraPivot.position, .5f, cameraPivot.TransformDirection(Vector3.forward), .5f);
 
-        foreach(RaycastHit hit in hits)
+        foreach (RaycastHit hit in hits)
         {
             Breakable breakable = hit.collider.gameObject.GetComponent<Breakable>();
             if (breakable != null) breakable.HitWithBat();
-            else UnityEngine.Debug.Log($"tried to hit {hit.collider.name}, but no breakable");
+            else UnityEngine.Debug.Log($"tried to hit {hit.collider.gameObject.name}, but no breakable");
         }
     }
 
     public void Release()
     {
+        UnityEngine.Debug.Log("dropping item?");
         if (heldItem)
         {
+            UnityEngine.Debug.Log("actually holding item and trying to drop");
             float thrustPower = stopwatch.ElapsedMilliseconds / 100 * throwingPower;
+            UnityEngine.Debug.Log(thrustPower);
             Math.Clamp(thrustPower, 0, maxThrowCharge);
             heldItem.Drop(cameraPivot.transform.forward * thrustPower);
             heldItem = null;
@@ -278,6 +311,16 @@ public class Player : MonoBehaviour
     public static void IncrementPresentCounter()
     {
         presentCounter++;
-        Counter.UpdateCounter(presentCounter);
+        Counter.UpdateCounter(presentCounter, Counter.Counters.present);
+    }
+    public static void IncrementSmashCounter()
+    {
+        smashCounter++;
+        Counter.UpdateCounter(smashCounter, Counter.Counters.smash);
+    }
+    public static void IncrementInteractionCounter()
+    {
+        interactionCounter++;
+        Counter.UpdateCounter(interactionCounter, Counter.Counters.interaction);
     }
 }
