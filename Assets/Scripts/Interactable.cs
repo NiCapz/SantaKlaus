@@ -46,6 +46,7 @@ public class Interactable : MonoBehaviour
                 Player.turkeyOnTree = true;
                 transform.localEulerAngles = new Vector3(0, 90, 180);
                 transform.localPosition += new Vector3(0, 0.0033f, 0);
+                Player.IncrementInteractionCounter();
             }
             if (wineBottle)
             {
@@ -68,6 +69,7 @@ public class Interactable : MonoBehaviour
                     br.Explode();
                 });
                 Player.microwaveExploded = true;
+                Player.IncrementInteractionCounter();
 
             }
             Destroy(this);

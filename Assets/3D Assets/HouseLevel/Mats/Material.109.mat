@@ -14,7 +14,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _EMISSION
-  m_LightmapFlags: 1
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -45,9 +45,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: b80a4743fe8694341bf4a33a72acccc7, type: 3}
+        m_Scale: {x: -0.95, y: 1.3}
+        m_Offset: {x: -0.025, y: -0.15}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -86,7 +86,7 @@ Material:
     - _VertJitter: 0.226
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 0.9063317, b: 0.15516424, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 1, b: 0.025780104, a: 1}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

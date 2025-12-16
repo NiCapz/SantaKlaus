@@ -39,7 +39,7 @@ public class Countdown : MonoBehaviour
             }
 
             countdown.SetText("");
-            Counter.gui.SetText("");
+            Counter.presentCounter.SetText("");
 
             int presentCounter = Player.presentCounter;
             switch (presentCounter)

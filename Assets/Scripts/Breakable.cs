@@ -35,7 +35,11 @@ public class Breakable : MonoBehaviour
     {
         hp -= 1;
         Debug.Log($"hit {gameObject.name}, {hp} remaining");
-        if (hp <= 0) Break();
+        if (hp <= 0)
+        {
+            Player.IncrementSmashCounter();
+            Break();
+        }
     }
 
     public void Explode()
@@ -78,7 +82,17 @@ public class Breakable : MonoBehaviour
     private void Break()
     {
         gameObject.SetActive(false);
-        Player.IncrementPresentCounter();
+        if (present) Player.IncrementPresentCounter();
+        //else Player.IncrementSmashCounter();
+        var audioSource = gameObject.GetComponentInChildren<AudioSource>();
+        if (audioSource)
+        {
+            audioSource.transform.SetParent(null);
+            audioSource.gameObject.SetActive(true);
+            audioSource.enabled = true;
+            audioSource.Play();
+        }
+
         foreach (Transform pieceTransform in pieces)
         {
             pieceTransform.SetParent(null);
