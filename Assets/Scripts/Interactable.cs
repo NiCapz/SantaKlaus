@@ -56,9 +56,6 @@ public class Interactable : MonoBehaviour
 
                 transform.localEulerAngles = new Vector3(0, 0, 90);
                 gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
-                //AudioSource[] audioSources = interactionPartner.gameObject.GetComponentsInChildren<AudioSource>();
-                //audioSources[0].gameObject.SetActive(true);
-                // audioSources[1].gameObject.SetActive(true);
                 audioSources[0].Play();
 
                 TimerManager.StartTimer(5f, () =>

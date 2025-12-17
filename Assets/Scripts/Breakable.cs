@@ -10,8 +10,10 @@ public class Breakable : MonoBehaviour
     private float requiredBreakageVelocity = 5f;
     private float explosionforce = 1f;
     private float explosionRadius = 1f;
+    private bool smashed = false;
     [SerializeField] private int hp;
     [SerializeField] bool present;
+    
 
     void Awake()
     {
@@ -35,25 +37,16 @@ public class Breakable : MonoBehaviour
     {
         hp -= 1;
         Debug.Log($"hit {gameObject.name}, {hp} remaining");
-        if (hp <= 0)
+        if (hp <= 0 || !smashed)
         {
             Player.IncrementSmashCounter();
             Break();
+            smashed = true;
         }
     }
 
     public void Explode()
     {
-        //Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-        //gameObject.SetActive(false);
-        /*
-        foreach(Transform child in GetComponentInChildren<Transform>())
-        {
-            child.SetParent(null);
-            child.gameObject.SetActive(true);
-            
-        } */
-
         GetComponent<BoxCollider>().enabled = false;
         foreach (MeshRenderer ren in transform.Find("MicroWaveVisual").GetComponentsInChildren<MeshRenderer>())
         {

@@ -13,7 +13,7 @@ public class Counter : MonoBehaviour
 
     static int presentTotal = 6;
     static int interactionsTotal = 2;
-    static int smashTotal = 7;
+    static int smashTotal = 8;
 
     void Start()
     {
